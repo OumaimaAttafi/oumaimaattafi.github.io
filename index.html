@@ -1,161 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oumaima Attafi Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-            background: #f3f4f6;
-            color: #333;
-        }
-        header {
-            position: sticky;
-            top: 0;
-            background: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        header nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        header nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 500;
-        }
-        header nav a:hover {
-            text-decoration: underline;
-        }
-        .hero {
-            text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(to bottom, #4CAF50, #88d498);
-            color: white;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            margin: 0;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            margin: 10px 0 20px;
-        }
-        .hero a {
-            display: inline-block;
-            background: white;
-            color: #4CAF50;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        .hero a:hover {
-            background: #88d498;
-            color: white;
-        }
-        section {
-            max-width: 1100px;
-            margin: 50px auto;
-            padding: 20px;
-        }
-        h2 {
-            color: #4CAF50;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .projects, .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .project-card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .project-card h3 {
-            margin: 0 0 10px;
-            font-size: 1.2rem;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #333;
-            color: white;
-        }
-        footer a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oumaima Attafi - Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .section {
+      padding: 20px;
+      margin: 10px auto;
+      max-width: 1000px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+    .section:hover {
+      transform: scale(1.03);
+    }
+    h1, h2, h3 {
+      color: #990000;
+    }
+    .skills ul, .projects ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .skills li, .projects li {
+      margin: 5px 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 15px;
+      margin: 5px;
+      border: none;
+      background-color: #003366;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #990000;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #003366;
+      color: white;
+    }
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: box-shadow 0.3s;
+    }
+    .project-card:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .project-details {
+      margin-bottom: 15px;
+    }
+    .project-buttons {
+      display: flex;
+      gap: 10px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <span>Oumaima Attafi</span>
-            <div>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
-    </header>
+  <header>
+    <h1>Oumaima Attafi</h1>
+    <p>Economic & Financial Engineering Portfolio</p>
+  </header>
 
-    <div class="hero">
-        <h1>Hello, I'm Oumaima Attafi</h1>
-        <p>Economic & Financial Engineer | Data Analyst</p>
-        <a href="#projects">View My Work</a>
+  <section class="section" id="about">
+    <h2>About Me</h2>
+    <p>As a dynamic economic and financial engineer, I excel at combining data-driven insights with innovative strategies. With expertise in quantitative analysis, financial modeling, and forecasting, I am passionate about solving complex financial problems while leveraging cutting-edge tools and techniques. My adaptability and creative problem-solving skills make me a valuable asset to any team or project.</p>
+  </section>
+
+  <section class="section" id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Financial Modeling</li>
+      <li>Quantitative Analysis</li>
+      <li>Data Visualization</li>
+      <li>Statistical Modeling</li>
+      <li>Risk Analysis</li>
+      <li>Portfolio Optimization</li>
+      <li>Forecasting Techniques</li>
+      <li>Machine Learning Applications in Finance</li>
+      <li>Excel, R, Python, and MATLAB</li>
+      <li>Geospatial Analysis with GeoDa</li>
+    </ul>
+  </section>
+
+  <section class="section" id="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <div class="project-details">
+        <strong>Banking Assistant Dashboard</strong>
+        <p>Designed an interactive dashboard to analyze key performance indicators for banking operations, demonstrating skills in data visualization and Excel automation.</p>
+      </div>
+      <div class="project-buttons">
+        <a class="btn" href="#" target="_blank">View Project</a>
+        <a class="btn" href="#" target="_blank">More Details</a>
+      </div>
     </div>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am an engineer specializing in economic and financial analysis. I love combining my analytical skills with creativity to build meaningful solutions.</p>
-    </section>
+    <div class="project-card">
+      <div class="project-details">
+        <strong>US Homicide Data Analysis</strong>
+        <p>Conducted geospatial analysis using GeoDa to uncover trends and patterns in crime data, showcasing expertise in geospatial techniques and statistical analysis.</p>
+      </div>
+      <div class="project-buttons">
+        <a class="btn" href="#" target="_blank">View Project</a>
+        <a class="btn" href="#" target="_blank">More Details</a>
+      </div>
+    </div>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects">
-            <div class="project-card">
-                <h3>Portfolio Website</h3>
-                <p>A responsive personal portfolio hosted on GitHub Pages.</p>
-                <a href="#">View Project</a>
-            </div>
-            <div class="project-card">
-                <h3>Data Analysis</h3>
-                <p>Analyzed U.S. homicide data using GeoDa for actionable insights.</p>
-                <a href="#">View Project</a>
-            </div>
-        </div>
-    </section>
+    <div class="project-card">
+      <div class="project-details">
+        <strong>Economic Forecasting Model</strong>
+        <p>Developed predictive models using Python to forecast macroeconomic indicators, highlighting skills in Python programming and predictive analytics.</p>
+      </div>
+      <div class="project-buttons">
+        <a class="btn" href="#" target="_blank">View Project</a>
+        <a class="btn" href="#" target="_blank">More Details</a>
+      </div>
+    </div>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills">
-            <div><strong>Data Analysis:</strong> Excel, R, GeoDa</div>
-            <div><strong>Web Development:</strong> HTML, CSS, GitHub Pages</div>
-            <div><strong>Engineering:</strong> Financial Modeling, Economic Analysis</div>
-        </div>
-    </section>
+    <div class="project-card">
+      <div class="project-details">
+        <strong>Portfolio Optimization Tool</strong>
+        <p>Built a tool to optimize investment portfolios based on risk-return profiles, showcasing knowledge in portfolio theory and MATLAB programming.</p>
+      </div>
+      <div class="project-buttons">
+        <a class="btn" href="#" target="_blank">View Project</a>
+        <a class="btn" href="#" target="_blank">More Details</a>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Feel free to reach out to me!</p>
-        <p>Email: <a href="mailto:oumaima.attafi410@gmail.com">oumaima.attafi410@gmail.com</a></p>
-        <p>LinkedIn: <a href="#" target="_blank">Visit My LinkedIn</a></p>
-    </section>
+  <section class="section" id="contact">
+    <h2>Contact Me</h2>
+    <p>Feel free to get in touch for collaboration or opportunities.</p>
+    <form action="mailto:oumaima.attafi410@gmail.com" method="POST" enctype="text/plain">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" required><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br>
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="5" required></textarea><br>
+      <button class="btn" type="submit">Send</button>
+    </form>
+  </section>
 
-    <footer>
-        <p>&copy; 2025 Oumaima Attafi | <a href="#">Back to top</a></p>
-    </footer>
+  <section class="section" id="resume">
+    <h2>Resume</h2>
+    <a class="btn" href="ATTAFI-OUMAIMA.pdf" download>Download My CV</a>
+  </section>
+
+  <footer>
+    <p>Connect with me:</p>
+    <a class="btn" href="https://www.linkedin.com/in/oumaima-attafi-2573ba316" target="_blank">LinkedIn</a>
+    <a class="btn" href="https://www.credly.com/users/oumaima-attafi" target="_blank">Credly</a>
+  </footer>
+
 </body>
 </html>
