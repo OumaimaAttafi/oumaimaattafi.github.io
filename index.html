@@ -82,3 +82,103 @@
     </script>
 </body>
 </html>
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll(".page");
+    const navLinks = document.querySelectorAll("nav ul li a");
+
+    function activateSection(sectionId) {
+        sections.forEach(section => {
+            if (section.id === sectionId) {
+                section.style.opacity = "1";
+                section.style.transform = "translateY(0)";
+            } else {
+                section.style.opacity = "0";
+                section.style.transform = "translateY(20px)";
+            }
+        });
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            activateSection(targetId);
+            history.pushState(null, null, `#${targetId}`);
+        });
+    });
+
+    window.addEventListener("load", () => {
+        const initialSection = window.location.hash ? window.location.hash.substring(1) : "about";
+        activateSection(initialSection);
+    });
+});
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #0A192F;
+    color: white;
+    transition: all 0.5s ease-in-out;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(10, 25, 47, 0.9);
+    padding: 15px 0;
+    z-index: 1000;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: #64FFDA;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #FF69B4;
+}
+
+.page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    transition: background 1s ease-in-out;
+}
+
+#about { background: url('about-bg.jpg') no-repeat center center/cover; }
+#skills { background: url('skills-bg.jpg') no-repeat center center/cover; }
+#projects { background: url('projects-bg.jpg') no-repeat center center/cover; }
+#contact { background: url('contact-bg.jpg') no-repeat center center/cover; }
+
+button {
+    background: #64FFDA;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background: #FF69B4;
+    color: white;
+}
+
