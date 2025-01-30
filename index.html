@@ -4,25 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Economic & Financial Analysis</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a192f;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(10, 25, 47, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            text-align: center;
+            z-index: 1000;
+            transition: background 0.3s ease-in-out;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: #64ffda;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff1493;
+        }
+
+        /* Sections */
+        .page {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+        }
+
+        #about { background-image: url('about-bg.jpg'); }
+        #skills { background-image: url('skills-bg.jpg'); }
+        #projects { background-image: url('projects-bg.jpg'); }
+        #contact { background-image: url('contact-bg.jpg'); }
+
+        /* Buttons */
+        button {
+            background: #64ffda;
+            color: #0a192f;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background: #ff1493;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#skills">My Skills</a></li>
-                <li><a href="#projects">My Projects</a></li>
-                <li><a href="#contact">Contact Me</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">My Skills</a></li>
+            <li><a href="#projects">My Projects</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+        </ul>
+    </nav>
     
     <section id="about" class="page">
         <div class="content">
             <h1>Oumaima Attafi</h1>
-            <p>Passionate about economic and financial analysis, I specialize in quantitative modeling and data-driven insights. My expertise lies in leveraging analytical tools to optimize decision-making in financial markets.</p>
+            <p>Passionate about economic and financial analysis, specializing in quantitative modeling and data-driven insights.</p>
         </div>
     </section>
     
@@ -44,13 +119,13 @@
             <h2>My Projects</h2>
             <div class="project">
                 <h3>Financial Market Prediction Model</h3>
-                <p>A predictive model for stock market trends using machine learning algorithms.</p>
+                <p>Predicting stock market trends using machine learning.</p>
                 <button class="view-btn">View Project</button>
                 <button class="details-btn">More Details</button>
             </div>
             <div class="project">
                 <h3>Economic Risk Assessment Tool</h3>
-                <p>A tool for analyzing and predicting economic risks based on historical data.</p>
+                <p>Analyzing and predicting economic risks based on data.</p>
                 <button class="view-btn">View Project</button>
                 <button class="details-btn">More Details</button>
             </div>
@@ -60,7 +135,7 @@
     <section id="contact" class="page">
         <div class="content">
             <h2>Contact Me</h2>
-            <p>Email: attafi.oumaima@example.com</p>
+            <p>Email: oumaima.attafi410@gmail.com</p>
             <form>
                 <input type="text" placeholder="Your Name" required>
                 <input type="email" placeholder="Your Email" required>
@@ -71,114 +146,19 @@
     </section>
     
     <script>
-        document.querySelectorAll('nav ul li a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray(".page").forEach((section, i) => {
+            gsap.to(section, {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                }
             });
         });
     </script>
 </body>
 </html>
-document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll(".page");
-    const navLinks = document.querySelectorAll("nav ul li a");
-
-    function activateSection(sectionId) {
-        sections.forEach(section => {
-            if (section.id === sectionId) {
-                section.style.opacity = "1";
-                section.style.transform = "translateY(0)";
-            } else {
-                section.style.opacity = "0";
-                section.style.transform = "translateY(20px)";
-            }
-        });
-    }
-
-    navLinks.forEach(link => {
-        link.addEventListener("click", function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute("href").substring(1);
-            activateSection(targetId);
-            history.pushState(null, null, `#${targetId}`);
-        });
-    });
-
-    window.addEventListener("load", () => {
-        const initialSection = window.location.hash ? window.location.hash.substring(1) : "about";
-        activateSection(initialSection);
-    });
-});
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #0A192F;
-    color: white;
-    transition: all 0.5s ease-in-out;
-}
-
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(10, 25, 47, 0.9);
-    padding: 15px 0;
-    z-index: 1000;
-    text-align: center;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-nav ul li a {
-    color: #64FFDA;
-    text-decoration: none;
-    font-size: 18px;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    color: #FF69B4;
-}
-
-.page {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    transition: background 1s ease-in-out;
-}
-
-#about { background: url('about-bg.jpg') no-repeat center center/cover; }
-#skills { background: url('skills-bg.jpg') no-repeat center center/cover; }
-#projects { background: url('projects-bg.jpg') no-repeat center center/cover; }
-#contact { background: url('contact-bg.jpg') no-repeat center center/cover; }
-
-button {
-    background: #64FFDA;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    margin: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-}
-
-button:hover {
-    transform: scale(1.1);
-    background: #FF69B4;
-    color: white;
-}
-
