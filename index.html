@@ -3,208 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oumaima's Portfolio</title>
-    <style>
-        /* General Page Layout */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        section {
-            padding: 100px 20px;
-            min-height: 100vh;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        /* Background Images for Sections */
-        #about {
-            background-image: url('81c75201-7fb3-432a-828a-5c19d0475e64.jpg'); /* Finance-related image */
-            background-size: cover;
-            background-position: center;
-        }
-
-        #skills {
-            background-image: url('download (6).jpg'); /* Stock market-related image */
-            background-size: cover;
-            background-position: center;
-        }
-
-        #projects {
-            background-image: url('https://source.unsplash.com/1600x900/?economic-analysis'); /* Economic analysis-related image */
-            background-size: cover;
-            background-position: center;
-        }
-
-        #contact {
-            background-image: url('https://source.unsplash.com/1600x900/?financial-data'); /* Financial data-related image */
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* General Styles */
-        h1, h2, h3 {
-            color: white;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        ul li {
-            color: white;
-            font-size: 20px;
-        }
-
-        /* Navigation Styling */
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style-type: none;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px 0;
-            margin: 0;
-        }
-
-        nav ul li {
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            padding: 10px;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: #ff00ff; /* Violet color for hover */
-        }
-
-        /* Form Styling */
-        form {
-            display: flex;
-            flex-direction: column;
-            width: 300px;
-            margin: 0 auto;
-        }
-
-        input, textarea {
-            padding: 10px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-            width: 100%;
-        }
-
-        button {
-            padding: 10px;
-            background-color: #ff00ff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #ff80ff;
-        }
-
-        /* Active section transition */
-        .page.active {
-            opacity: 1 !important;
-        }
-
-        /* Smooth scroll behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+    <title>Portfolio - Economic & Financial Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#skills">My Skills</a></li>
-            <li><a href="#projects">My Projects</a></li>
-            <li><a href="#contact">Contact Me</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">My Skills</a></li>
+                <li><a href="#projects">My Projects</a></li>
+                <li><a href="#contact">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
     
     <section id="about" class="page">
-        <h1>Oumaima Attafi</h1>
-        <p>Passionate about economic and financial analysis, I specialize in financial modeling and quantitative analysis...</p>
+        <div class="content">
+            <h1>Oumaima Attafi</h1>
+            <p>Passionate about economic and financial analysis, I specialize in quantitative modeling and data-driven insights. My expertise lies in leveraging analytical tools to optimize decision-making in financial markets.</p>
+        </div>
     </section>
     
     <section id="skills" class="page">
-        <h2>My Skills</h2>
-        <ul>
-            <li>Financial Modeling</li>
-            <li>Economic Analysis</li>
-            <li>Quantitative Finance</li>
-            <li>Data Visualization</li>
-        </ul>
+        <div class="content">
+            <h2>My Skills</h2>
+            <ul>
+                <li>Economic and Financial Modeling</li>
+                <li>Data Analysis & Visualization</li>
+                <li>Statistical & Quantitative Analysis</li>
+                <li>Risk Management</li>
+                <li>Programming (Python, R, Excel VBA)</li>
+            </ul>
+        </div>
     </section>
     
     <section id="projects" class="page">
-        <h2>My Projects</h2>
-        <div class="project">
-            <h3>Project 1</h3>
-            <button>View Project</button>
-            <button>More Details</button>
-        </div>
-        <div class="project">
-            <h3>Project 2</h3>
-            <button>View Project</button>
-            <button>More Details</button>
+        <div class="content">
+            <h2>My Projects</h2>
+            <div class="project">
+                <h3>Financial Market Prediction Model</h3>
+                <p>A predictive model for stock market trends using machine learning algorithms.</p>
+                <button class="view-btn">View Project</button>
+                <button class="details-btn">More Details</button>
+            </div>
+            <div class="project">
+                <h3>Economic Risk Assessment Tool</h3>
+                <p>A tool for analyzing and predicting economic risks based on historical data.</p>
+                <button class="view-btn">View Project</button>
+                <button class="details-btn">More Details</button>
+            </div>
         </div>
     </section>
     
     <section id="contact" class="page">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:oumaima.attafi410@gmail.com">oumaima.attafi410@gmail.com</a></p>
-        <form id="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
+        <div class="content">
+            <h2>Contact Me</h2>
+            <p>Email: attafi.oumaima@example.com</p>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
     </section>
-
+    
     <script>
-        // JavaScript to handle page transitions and smooth scrolling
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('nav ul li a');
-
-            // Function to switch active sections
-            function setActiveSection(targetId) {
-                sections.forEach(section => {
-                    section.classList.remove('active');
-                });
-
-                const targetSection = document.querySelector(targetId);
-                targetSection.classList.add('active');
-            }
-
-            // Event listener for navigation links
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetId = link.getAttribute('href');
-                    setActiveSection(targetId);
-                });
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                targetSection.scrollIntoView({ behavior: 'smooth' });
             });
-
-            // Set the first section as active by default
-            setActiveSection('#about');
         });
     </script>
 </body>
