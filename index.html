@@ -6,18 +6,19 @@
     <title>Portfolio - Economic & Financial Analysis</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Link to FontAwesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         /* General Styles */
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #0a192f;
+            background-color: #121212;
             color: white;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* Neon Text Glow */
         h1, h2, h3, p {
             text-shadow: 0 0 5px #64ffda, 0 0 10px #64ffda, 0 0 20px #64ffda, 0 0 40px #ff1493, 0 0 80px #ff1493;
         }
@@ -26,35 +27,55 @@
         nav {
             position: fixed;
             width: 100%;
-            background: rgba(10, 25, 47, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
+            background: rgba(18, 18, 18, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 10px 0;
             text-align: center;
             z-index: 1000;
             transition: background 0.3s ease-in-out;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
         }
 
         nav ul {
             list-style: none;
-            padding: 0;
-            margin: 0;
             display: flex;
-            justify-content: center;
-            gap: 30px;
+            gap: 20px;
         }
 
         nav ul li a {
             color: #64ffda;
             text-decoration: none;
-            font-size: 1.5em;
-            text-shadow: 0 0 5px #64ffda, 0 0 10px #64ffda;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: color 0.3s ease, transform 0.3s ease;
         }
 
         nav ul li a:hover {
             color: #ff1493;
             transform: scale(1.1);
-            text-shadow: 0 0 10px #ff1493, 0 0 20px #ff1493;
+        }
+
+        /* Dark Mode Button and Icons */
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-icons i {
+            color: #64ffda;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-icons i:hover {
+            color: #ff1493;
+            transform: scale(1.1);
         }
 
         /* Sections */
@@ -74,7 +95,7 @@
         #about { background-image: url('pngpptx.png'); }
         #skills { background-image: url('PNG2.png'); }
         #projects { background-image: url('png3.png'); }
-        #contact { background-image: url('contact-bg.jpg'); }
+        #contact { background-image: url('png4.png'); }
 
         /* Neon Button */
         button {
@@ -116,17 +137,6 @@
             transform: scale(1.05);
             box-shadow: 0 0 5px #64ffda;
         }
-
-        /* Glow Animation for Background */
-        @keyframes glowBackground {
-            0% { background-color: #0a192f; }
-            50% { background-color: #0f2944; }
-            100% { background-color: #0a192f; }
-        }
-
-        .page {
-            animation: glowBackground 5s ease-in-out infinite;
-        }
     </style>
 </head>
 <body>
@@ -137,8 +147,17 @@
             <li><a href="#projects">My Projects</a></li>
             <li><a href="#contact">Contact Me</a></li>
         </ul>
+        
+        <!-- Icons for Dark/Light Mode and other interactions -->
+        <div class="nav-icons">
+            <i class="fas fa-sun" id="light-mode-toggle" title="Light Mode"></i>
+            <i class="fas fa-moon" id="dark-mode-toggle" title="Dark Mode"></i>
+            <i class="fas fa-search" title="Search"></i>
+            <i class="fas fa-envelope" title="Messages"></i>
+        </div>
     </nav>
     
+    <!-- Sections -->
     <section id="about" class="page">
         <div class="content">
             <h1>Oumaima Attafi</h1>
@@ -192,19 +211,7 @@
     
     <script>
         gsap.registerPlugin(ScrollTrigger);
-        
-        // Parallax Effect for Background Images
-        gsap.to(".page", {
-            scrollTrigger: {
-                trigger: ".page",
-                start: "top bottom",
-                end: "bottom top",
-                scrub: true,
-            },
-            backgroundPosition: "center center",
-        });
 
-        // Section Animations with smoother transitions
         gsap.utils.toArray(".page").forEach((section, i) => {
             gsap.to(section, {
                 opacity: 1,
@@ -220,26 +227,23 @@
             });
         });
 
-        // Navigation Link Animation with easing
-        gsap.from("nav ul li a", {
-            opacity: 0,
-            y: -20,
-            stagger: 0.1,
-            duration: 1,
-            delay: 1.5,
-            ease: "power3.out"
+        // Dark/Light Mode toggle functionality
+        const lightModeIcon = document.getElementById('light-mode-toggle');
+        const darkModeIcon = document.getElementById('dark-mode-toggle');
+        
+        lightModeIcon.addEventListener('click', () => {
+            document.body.style.backgroundColor = '#ffffff';
+            document.body.style.color = '#121212';
+            darkModeIcon.style.display = 'block';
+            lightModeIcon.style.display = 'none';
         });
-
-        // Button Animations with smooth easing
-        gsap.from("button", {
-            opacity: 0,
-            y: 20,
-            stagger: 0.2,
-            duration: 1,
-            delay: 2,
-            ease: "power3.out"
+        
+        darkModeIcon.addEventListener('click', () => {
+            document.body.style.backgroundColor = '#121212';
+            document.body.style.color = 'white';
+            darkModeIcon.style.display = 'none';
+            lightModeIcon.style.display = 'block';
         });
     </script>
 </body>
 </html>
-
