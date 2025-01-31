@@ -48,7 +48,7 @@
             text-decoration: none;
             font-size: 1.5em;
             text-shadow: 0 0 5px #64ffda, 0 0 10px #64ffda;
-            transition: color 0.3s, transform 0.3s;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         nav ul li a:hover {
@@ -68,13 +68,13 @@
             background-position: center;
             opacity: 0;
             transform: translateY(30px);
-            transition: transform 0.5s ease-out;
+            transition: transform 1s ease-out, opacity 1s ease-out;
         }
 
         #about { background-image: url('pngpptx.png'); }
         #skills { background-image: url('PNG2.png'); }
         #projects { background-image: url('png3.png'); }
-        #contact { background-image: url('png4.png'); }
+        #contact { background-image: url('contact-bg.jpg'); }
 
         /* Neon Button */
         button {
@@ -86,11 +86,11 @@
             cursor: pointer;
             border-radius: 5px;
             text-shadow: 0 0 5px #64ffda, 0 0 10px #64ffda;
-            transition: transform 0.3s, background 0.3s, text-shadow 0.3s;
+            transition: transform 0.3s ease, background 0.3s ease, text-shadow 0.3s ease;
         }
 
         button:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
             background: #ff1493;
             color: white;
             text-shadow: 0 0 10px #ff1493, 0 0 20px #ff1493;
@@ -105,7 +105,7 @@
             width: 100%;
             color: white;
             border-radius: 5px;
-            transition: transform 0.3s;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         input::placeholder, textarea::placeholder {
@@ -204,13 +204,14 @@
             backgroundPosition: "center center",
         });
 
-        // Section Animations
+        // Section Animations with smoother transitions
         gsap.utils.toArray(".page").forEach((section, i) => {
             gsap.to(section, {
                 opacity: 1,
                 y: 0,
-                duration: 1.5,
+                duration: 1.2,
                 delay: i * 0.5,
+                ease: "power3.out",
                 scrollTrigger: {
                     trigger: section,
                     start: "top 75%",
@@ -219,7 +220,7 @@
             });
         });
 
-        // Navigation Link Animation
+        // Navigation Link Animation with easing
         gsap.from("nav ul li a", {
             opacity: 0,
             y: -20,
@@ -229,7 +230,7 @@
             ease: "power3.out"
         });
 
-        // Button Animations
+        // Button Animations with smooth easing
         gsap.from("button", {
             opacity: 0,
             y: 20,
@@ -241,3 +242,4 @@
     </script>
 </body>
 </html>
+
