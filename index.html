@@ -83,36 +83,35 @@
       text-align: center;
       position: relative;
       overflow: hidden;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s forwards;
     }
 
     .section::before {
       content: '';
       position: absolute;
       top: 0;
-      bottom: 0;
-      width: 50%;
+      left: 0;
+      height: 100%;
+      width: 100%;
       background-size: cover;
-      background-position: center;
+      background-position: center center;
+      background-repeat: no-repeat;
       opacity: 0.25;
       z-index: -2;
       filter: brightness(0.7);
     }
 
-    #home::before { left: auto; right: 0; background-image: url('download (15).jpg'); }
-    #projects::before { left: 0; right: auto; background-image: url('images/projects-bg.jpg'); }
-    #skills::before { left: auto; right: 0; background-image: url('images/skills-bg.jpg'); }
-    #contact::before { left: 0; right: auto; background-image: url('images/contact-bg.jpg'); }
-    #resume::before { left: auto; right: 0; background-image: url('images/resume-bg.jpg'); }
+    #home::before { background-image: url('download (15).jpg'); }
+    #projects::before { background-image: url('images/projects-bg.jpg'); }
+    #skills::before { background-image: url('images/skills-bg.jpg'); }
+    #contact::before { background-image: url('images/contact-bg.jpg'); }
+    #resume::before { background-image: url('images/resume-bg.jpg'); }
 
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(50px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-
-    .section {
-      opacity: 0;
-      transform: translateY(50px);
-      animation: fadeInUp 1s forwards;
     }
 
     h1, h2, h3 {
@@ -182,6 +181,24 @@
     }
 
     .contact-form button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px var(--neon-color);
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      background: linear-gradient(135deg, var(--gradient-end), var(--gradient-start));
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: bold;
+      box-shadow: 0 0 15px var(--neon-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .download-btn:hover {
       transform: scale(1.1);
       box-shadow: 0 0 25px var(--neon-color);
     }
