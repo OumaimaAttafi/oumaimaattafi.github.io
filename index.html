@@ -1,288 +1,126 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oumaima Attafi | Quantitative Analyst Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Oumaima Attafi – Quantitative Research Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    :root {
-      --gradient-start: #B8B7FD;
-      --gradient-end: #F6DDFF;
-      --text-color: #1b1b1e;
-      --accent-color: #ffffff;
-      --neon-color: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-    }
-
     body {
-      background: transparent;
-      color: var(--text-color);
-      line-height: 1.8;
-      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f9f9;
+      color: #1f2937;
     }
-
-    nav {
-      background: transparent;
-      backdrop-filter: blur(20px);
-      padding: 1rem 2rem;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    .section-heading {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: #111827;
     }
-
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      gap: 2rem;
+    .card {
+      background-color: #ffffffcc;
+      border-radius: 1rem;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+      padding: 1.5rem;
+      transition: transform 0.2s;
     }
-
-    nav ul li a {
-      color: var(--text-color);
-      text-decoration: none;
-      font-weight: bold;
-      position: relative;
-      transition: color 0.3s ease, transform 0.3s ease;
+    .card:hover {
+      transform: translateY(-5px);
     }
-
-    nav ul li a:hover {
-      color: var(--accent-color);
-      transform: scale(1.1);
-    }
-
-    nav ul li a::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: -5px;
-      left: 0;
-      background-color: var(--neon-color);
-      box-shadow: 0 0 10px var(--neon-color), 0 0 20px var(--neon-color);
-      transition: width 0.4s ease;
-    }
-
-    nav ul li a:hover::after {
-      width: 100%;
-    }
-
-    .section {
-      padding: 14rem 3rem;
-      max-width: 1600px;
-      min-height: 100vh;
-      margin: auto;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      opacity: 0;
-      transform: translateY(50px);
-      animation: fadeInUp 1s forwards;
-    }
-
-    .section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
+    .bg-overlay {
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      opacity: 1;
-      z-index: -2;
-      filter: none;
+      position: relative;
     }
-
-    #home::before { background-image: url('Design sans titre.png'); }
-    #projects::before { background-image: url('Design sans titre (1).png'); }
-    #skills::before { background-image: url('Design sans titre (2).png'); }
-    #contact::before { background-image: url('Design sans titre (3).png'); }
-    #resume::before { background-image: url('Design sans titre (4).png'); }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    h1, h2, h3 {
-      text-shadow: 0 0 15px var(--neon-color), 0 0 30px var(--neon-color);
-    }
-
-    .home h1 { font-size: 4rem; }
-    .home p { font-size: 1.6rem; margin-top: 1rem; }
-
-    .project-list, .skills-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .project-card, .skills-list li {
-      background: #E3AADD;
-      color: var(--accent-color);
-      padding: 1.5rem;
-      border-radius: 16px;
-      box-shadow: 0 0 20px var(--neon-color);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .project-card:hover, .skills-list li:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 30px var(--neon-color);
-    }
-
-    .skills-list li {
-      list-style: none;
-      font-size: 1.3rem;
-    }
-
-    .project-card h3 a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .project-card h3 a:hover {
-      text-decoration: underline;
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      max-width: 650px;
-      margin: 2rem auto;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 2.5rem;
-      border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    }
-
-    .contact-form input, .contact-form textarea {
+    .bg-overlay::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      padding: 1rem;
-      border: 2px solid var(--neon-color);
-      border-radius: 14px;
-      font-size: 1rem;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      z-index: 0;
     }
-
-    .contact-form button {
-      background: linear-gradient(135deg, var(--gradient-end), var(--gradient-start));
-      border: none;
-      padding: 1rem 2.5rem;
-      border-radius: 14px;
-      color: var(--text-color);
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 0 15px var(--neon-color);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .contact-form button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 25px var(--neon-color);
-    }
-
-    .download-btn {
-      display: inline-block;
-      margin-top: 2rem;
-      background: linear-gradient(135deg, var(--gradient-end), var(--gradient-start));
-      padding: 1rem 2rem;
-      border-radius: 12px;
-      text-decoration: none;
-      color: var(--text-color);
-      font-weight: bold;
-      box-shadow: 0 0 15px var(--neon-color);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .download-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 25px var(--neon-color);
-    }
-
-    footer {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(12px);
-      color: var(--text-color);
-      text-align: center;
-      padding: 1.5rem 0;
-      margin-top: 2rem;
+    .bg-overlay > * {
+      position: relative;
+      z-index: 1;
     }
   </style>
 </head>
-<body>
-  <nav class="navbar">
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#resume">Resume</a></li>
-    </ul>
-  </nav>
 
-  <section id="home" class="section home">
-    <h1>Oumaima Attafi</h1>
-    <p>Bridging the gap between finance and data through quantitative analysis.</p>
-  </section>
-
-  <section id="projects" class="section projects">
-    <h2>Projects</h2>
-    <div class="project-list">
-      <div class="project-card">
-        <h3><a href="https://github.com/oumaimaattafi/Credit-Risk-Model" target="_blank" rel="noopener noreferrer">Credit Risk Model</a></h3>
-        <p>A model to predict credit risk for mortgage portfolios using machine learning techniques.</p>
-      </div>
-      <div class="project-card">
-        <h3><a href="https://github.com/oumaimaattafi/Fico-Bucketing-Model" target="_blank" rel="noopener noreferrer">FICO Bucketing</a></h3>
-        <p>Tool to bucket FICO scores and calculate probability of default for credit analysis.</p>
-      </div>
+<body class="flex flex-col min-h-screen">
+  <header class="bg-white shadow fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-indigo-700">Oumaima Attafi</h1>
+      <nav class="space-x-6">
+        <a href="#home" class="text-gray-700 hover:text-indigo-700">Home</a>
+        <a href="#projects" class="text-gray-700 hover:text-indigo-700">Projects</a>
+        <a href="#skills" class="text-gray-700 hover:text-indigo-700">Skills</a>
+        <a href="#contact" class="text-gray-700 hover:text-indigo-700">Contact</a>
+        <a href="#resume" class="text-gray-700 hover:text-indigo-700">Resume</a>
+      </nav>
     </div>
-  </section>
+  </header>
+   #home::before { background-image: url('Quality before quantity.jpg'); }
+    #skills::before { background-image: url('Design sans titre (2).png'); }
+    #resume::before { background-image: url('Design sans titre (3).png'); }
 
-  <section id="skills" class="section skills">
-    <h2>Skills</h2>
-    <ul class="skills-list">
-      <li>Data Analysis & Visualization</li>
-      <li>Business Intelligence</li>
-      <li>SQL & Database Management</li>
-      <li>Excel & VBA</li>
-      <li>Python for Data Science</li>
-      <li>Communication & Presentation</li>
-      <li>Project Management</li>
-    </ul>
-  </section>
+  <main class="pt-24">
+    <section id="home" class="py-20 text-center bg-overlay" style="background-image: url('https://images.unsplash.com/photo-1531497865144-0464ef8fbf57?auto=format&fit=crop&w=1600&q=80');">
+      <h2 class="text-4xl font-bold text-indigo-700 mb-4">Quantitative Researcher Portfolio</h2>
+      <p class="text-lg text-gray-700">Master in Economic & Financial Modeling | Data & Finance Enthusiast</p>
+    </section>
 
-  <section id="contact" class="section contact">
-    <h2>Contact Me</h2>
-    <form class="contact-form" action="mailto:your.email@example.com" method="POST" enctype="text/plain">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
+    <section id="projects" class="py-20 px-6 md:px-20 bg-white">
+      <h2 class="section-heading text-center mb-10">Projects</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card">
+          <h3 class="text-xl font-semibold text-indigo-600 mb-2">Credit Risk Model</h3>
+          <p class="text-gray-600">Built a machine learning model to predict default risk using structured financial data and logistic regression.</p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-semibold text-indigo-600 mb-2">FICO Score Bucketing</h3>
+          <p class="text-gray-600">Segmented clients into risk groups based on FICO scores to support strategic lending decisions.</p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-semibold text-indigo-600 mb-2">Pricing Simulation</h3>
+          <p class="text-gray-600">Designed a Python-based pricing model to test sensitivity and profitability under varying constraints.</p>
+        </div>
+      </div>
+    </section>
 
-  <section id="resume" class="section resume">
-    <h2>Resume</h2>
-    <p>Download my resume to learn more about my professional background.</p>
-    <a href="Oumaima_Attafi_Resume.pdf" download class="download-btn">Download Resume</a>
-  </section>
+    <section id="skills" class="py-20 px-6 md:px-20 bg-overlay" style="background-image: url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80');">
+      <h2 class="section-heading text-center mb-10">Skills</h2>
+      <ul class="grid md:grid-cols-3 gap-6 text-center">
+        <li class="card">Python, R, SQL</li>
+        <li class="card">Excel, Power BI</li>
+        <li class="card">Quantitative Modeling</li>
+        <li class="card">Time Series, Forecasting</li>
+        <li class="card">Machine Learning (Scikit-learn, XGBoost)</li>
+        <li class="card">Communication, Bilingual (FR/AR)</li>
+      </ul>
+    </section>
 
-  <footer>
-    <p>© 2025 Oumaima Attafi — All rights reserved.</p>
+    <section id="contact" class="py-20 px-6 md:px-20 bg-white">
+      <h2 class="section-heading text-center mb-10">Contact</h2>
+      <div class="text-center text-gray-600">
+        <p>Email: <a href="mailto:oumaima.attafi@gmail.com" class="text-indigo-600 hover:underline">oumaima.attafi@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/oumaimaattafi" target="_blank" class="text-indigo-600 hover:underline">github.com/oumaimaattafi</a></p>
+      </div>
+    </section>
+
+    <section id="resume" class="py-20 px-6 md:px-20 bg-overlay text-center" style="background-image: url('https://images.unsplash.com/photo-1600267165451-f9b8d56c9b79?auto=format&fit=crop&w=1600&q=80');">
+      <h2 class="section-heading mb-8">Resume</h2>
+      <a href="./resume.pdf" download class="px-6 py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition">Download Resume</a>
+    </section>
+  </main>
+
+  <footer class="bg-white text-center text-sm text-gray-500 py-6 mt-auto">
+    &copy; 2025 Oumaima Attafi. All rights reserved.
   </footer>
 </body>
+
 </html>
