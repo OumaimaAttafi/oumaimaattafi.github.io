@@ -1,9 +1,13 @@
-!DOCTYPE html> 
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Oumaima Attafi | Quantitative Analyst Portfolio</title>
+
+  <!-- Google Font Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="styles.css" />
   <style>
     :root {
@@ -18,7 +22,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Arial', sans-serif;
+      font-family: 'Montserrat', sans-serif; /* Changed to Montserrat */
     }
 
     body {
@@ -80,7 +84,6 @@
       max-width: 1600px;
       min-height: 100vh;
       margin: auto;
-      text-align: center;
       position: relative;
       overflow: hidden;
       opacity: 0;
@@ -118,8 +121,40 @@
       text-shadow: 0 0 15px var(--neon-color), 0 0 30px var(--neon-color);
     }
 
-    .home h1 { font-size: 4rem; }
-    .home p { font-size: 1.6rem; margin-top: 1rem; }
+    /* Shift name & description to the left */
+    .home {
+      text-align: left;
+      padding-left: 8rem;
+    }
+
+    .home h1 {
+      font-size: 4rem;
+      text-transform: uppercase;
+    }
+
+    .home p {
+      font-size: 1.6rem;
+      margin-top: 1rem;
+    }
+
+    /* Who am I button styling */
+    .home .who-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      background: linear-gradient(135deg, var(--gradient-end), var(--gradient-start));
+      padding: 0.8rem 1.8rem;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: bold;
+      box-shadow: 0 0 15px var(--neon-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .home .who-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px var(--neon-color);
+    }
 
     .project-list, .skills-list {
       display: grid;
@@ -236,6 +271,7 @@
   <section id="home" class="section home">
     <h1>Oumaima Attafi</h1>
     <p>Bridging the gap between finance and data through quantitative analysis.</p>
+    <a href="#about" class="who-btn">Who am I?</a>
   </section>
 
   <section id="projects" class="section projects">
