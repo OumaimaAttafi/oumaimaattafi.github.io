@@ -47,7 +47,7 @@
       display: flex;
       justify-content: center;
       list-style: none;
-      gap: 2rem;
+      gap: 4rem;
     }
 
     nav ul li a {
@@ -144,7 +144,9 @@
 
     /* Who am I button styling */
     .home .who-btn {
-      background: red;   /* bouton rouge */
+     display: inline-block;
+  margin-top: 3rem;      /* <-- augmente l'espace au-dessus du bouton (essaye 3rem) */
+  background: red;       /* ton bouton rouge */
   padding: 0.8rem 1.8rem;
   border-radius: 12px;
   text-decoration: none;
@@ -152,6 +154,7 @@
   font-weight: bold;
   box-shadow: 0 0 15px var(--neon-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
     }
 
     .home .who-btn:hover {
