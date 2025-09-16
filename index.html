@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,7 +8,6 @@
   <!-- Google Font Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css" />
   <style>
     :root {
       --gradient-start: #B8B7FD;
@@ -22,7 +21,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'DM Serif Display', sans-serif; /* Changed to Montserrat */
+      font-family: 'Montserrat', sans-serif;
     }
 
     body {
@@ -47,7 +46,7 @@
       display: flex;
       justify-content: center;
       list-style: none;
-      gap: 4rem;
+      gap: 4rem; /* espace entre les liens */
     }
 
     nav ul li a {
@@ -91,37 +90,16 @@
       animation: fadeInUp 1s forwards;
     }
 
-    .section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: 1;
-      z-index: -2;
-      filter: none;
-    }
-
-    #home::before { background-image: url('retouch_2025081113255905.jpg'); }
-    #projects::before { background-image: url('Design sans titre (8).png'); }
-    #skills::before { background-image: url('Design sans titre (8).png'); }
-    #contact::before { background-image: url('Design sans titre (8).png'); }
-    #resume::before { background-image: url('Design sans titre (8).png'); }
-
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(50px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     h1, h2, h3 {
-      text-shadow:none ;
+      text-shadow: none;
     }
 
-    /* Updated: Shift name & description to the left and make them white */
+    /* Home Section */
     .home {
       text-align: left;
       padding-left: 5rem;
@@ -142,19 +120,18 @@
       margin-top: 1rem;
     }
 
-    /* Who am I button styling */
     .home .who-btn {
-     display: inline-block;
-  margin-top: 3rem;      /* <-- augmente l'espace au-dessus du bouton (essaye 3rem) */
-  background: red;       /* ton bouton rouge */
-  padding: 0.8rem 1.8rem;
-  border-radius: 12px;
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: bold;
-  box-shadow: 0 0 15px var(--neon-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
+      display: inline-block;
+      margin-top: 3rem;
+      background: red;
+      padding: 0.8rem 1.8rem;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: bold;
+      box-shadow: 0 0 15px var(--neon-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
     }
 
     .home .who-btn:hover {
@@ -162,6 +139,62 @@
       box-shadow: 0 0 25px var(--neon-color);
     }
 
+    /* About Me Section */
+    .about {
+      padding: 5rem 10%;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .about-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .about-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: red;
+    }
+
+    .about-text p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      text-align: justify;
+    }
+
+    .about-photo {
+      flex: 1;
+      min-width: 250px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-photo img {
+      width: 300px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+      transition: transform 0.3s ease;
+    }
+
+    .about-photo img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Projects & Skills */
     .project-list, .skills-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -197,6 +230,7 @@
       text-decoration: underline;
     }
 
+    /* Contact Form */
     .contact-form {
       display: flex;
       flex-direction: column;
@@ -235,6 +269,7 @@
       box-shadow: 0 0 25px var(--neon-color);
     }
 
+    /* Resume */
     .download-btn {
       display: inline-block;
       margin-top: 2rem;
@@ -264,9 +299,11 @@
   </style>
 </head>
 <body>
+  <!-- Navbar -->
   <nav class="navbar">
     <ul>
       <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Me</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -274,12 +311,33 @@
     </ul>
   </nav>
 
+  <!-- Home Section -->
   <section id="home" class="section home">
     <h1>Oumaima Attafi</h1>
     <p>Bridging the gap between finance and data through quantitative analysis.</p>
     <a href="#about" class="who-btn">About me</a>
   </section>
 
+  <!-- About Me Section -->
+  <section id="about" class="section about">
+    <div class="about-content">
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>
+          I hold a <strong>Bachelor’s degree in Financial and Economic Engineering</strong> 
+          and a <strong>Master’s degree in Economic and Financial Modelling and Quantitative Analysis</strong>.  
+          My journey has shaped strong <strong>analytical skills</strong>, with a focus on 
+          <strong>quantitative analysis, data, finance, econometrics, and risk management</strong>.  
+          I thrive on transforming complex data into actionable insights and driving value through analysis.
+        </p>
+      </div>
+      <div class="about-photo">
+        <img src="https://via.placeholder.com/300x350" alt="Your Photo" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
   <section id="projects" class="section projects">
     <h2>Projects</h2>
     <div class="project-list">
@@ -294,6 +352,7 @@
     </div>
   </section>
 
+  <!-- Skills Section -->
   <section id="skills" class="section skills">
     <h2>Skills</h2>
     <ul class="skills-list">
@@ -307,6 +366,7 @@
     </ul>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact" class="section contact">
     <h2>Contact Me</h2>
     <form class="contact-form" action="mailto:your.email@example.com" method="POST" enctype="text/plain">
@@ -317,12 +377,14 @@
     </form>
   </section>
 
+  <!-- Resume Section -->
   <section id="resume" class="section resume">
     <h2>Resume</h2>
     <p>Download my resume to learn more about my professional background.</p>
     <a href="Oumaima_Attafi_Resume.pdf" download class="download-btn">Download Resume</a>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>© 2025 Oumaima Attafi — All rights reserved.</p>
   </footer>
