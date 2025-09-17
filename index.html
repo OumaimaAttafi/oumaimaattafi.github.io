@@ -169,17 +169,20 @@
     }
 
     .project-card, .skills-list li {
-      background: #E3AADD;
-      color: var(--accent-color);
-      padding: 1.5rem;
-      border-radius: 16px;
-      box-shadow: 0 0 20px var(--neon-color);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+     background: rgba(255, 255, 255, 0.1); /* semi-transparent */
+  backdrop-filter: blur(12px);          /* effet flou */
+  -webkit-backdrop-filter: blur(12px);  /* compatibilité Safari */
+  color: var(--accent-color);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 2px solid red;               /* cadre rouge */
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); /* glow rouge */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .project-card:hover, .skills-list li:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 30px var(--neon-color);
+       transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.9); /* glow plus intense au hover */
     }
 
     .skills-list li {
