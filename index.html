@@ -200,7 +200,7 @@ body h1:not(.home h1) {
       text-decoration: underline;
     }
 
-    .contact-container {
+   .contact-container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -208,42 +208,95 @@ body h1:not(.home h1) {
   flex-wrap: wrap;
 }
 
+/* Formulaire design avancé */
 .contact-form {
   flex: 1;
-  background: rgba(255, 255, 255, 0.1); /* transparent */
-  backdrop-filter: blur(12px);          /* effet flou */
-  -webkit-backdrop-filter: blur(12px);  /* compatibilité Safari */
-  color: var(--accent-color);
-  padding: 1.5rem;
-  border-radius: 16px;
-  border: 2px solid red;                /* cadre rouge */
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(255, 255, 255, 0.08); 
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 2rem;
+  border-radius: 18px;
+  border: 2px solid red;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
+  animation: fadeInUp 1.2s ease forwards;
 }
 
-.contact-form:hover {
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.2rem;
+  border: 2px solid rgba(255, 0, 0, 0.6);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: red;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
   transform: scale(1.02);
-  box-shadow: 0 0 30px rgba(255, 0, 0, 0.9);
 }
 
+/* Bouton dynamique */
+.contact-form button {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff2e63, #ff4b5c);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+  transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(255, 0, 0, 1);
+}
+
+/* Bloc infos contact */
 .contact-info {
   flex: 1;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   color: white;
-  padding: 1.5rem;
-  border-radius: 16px;
+  padding: 2rem;
+  border-radius: 18px;
   border: 2px solid red;
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
+  animation: fadeInUp 1.4s ease forwards;
 }
+
 .contact-info h3 {
   margin-bottom: 1rem;
   text-align: center;
+  font-size: 1.8rem;
+  color: white;
 }
+
 .contact-info p {
   font-size: 1.2rem;
-  margin: 0.5rem 0;
+  margin: 0.8rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.contact-info a {
+  color: white;
+  text-decoration: none;
+}
+.contact-info a:hover {
+  text-decoration: underline;
+  color: #ff4b5c;
 }
 
 
