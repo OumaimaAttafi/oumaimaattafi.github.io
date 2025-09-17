@@ -118,12 +118,11 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    h1, h2, h3 {
-       text-align: center;   /* centre les titres */
-  color: white;         /* rend les titres blancs */
-  text-shadow: none;    /* tu peux enlever ou personnaliser l’ombre */ 
-    }
-
+   h2, h3,
+body h1:not(.home h1) {
+  text-align: center;  /* centre les titres */
+  color: white;        /* texte blanc */
+}
     .home {
       text-align: left;
       padding-left: 5rem;
@@ -383,7 +382,7 @@
   </section>
 
   <footer>
-    <p>Made with ❤️ by Oumaima Attafi — All rights reserved ©.</p>
+    <p>Made with ❤️ by Oumaima Attafi | All rights reserved ©.</p>
   </footer>
 </body>
 </html>
