@@ -200,43 +200,52 @@ body h1:not(.home h1) {
       text-decoration: underline;
     }
 
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      max-width: 650px;
-      margin: 2rem auto;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 2.5rem;
-      border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    }
+    .contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
 
-    .contact-form input, .contact-form textarea {
-      width: 100%;
-      padding: 1rem;
-      border: 2px solid var(--neon-color);
-      border-radius: 14px;
-      font-size: 1rem;
-    }
+.contact-form {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1); /* transparent */
+  backdrop-filter: blur(12px);          /* effet flou */
+  -webkit-backdrop-filter: blur(12px);  /* compatibilité Safari */
+  color: var(--accent-color);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 2px solid red;                /* cadre rouge */
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    .contact-form button {
-      background: linear-gradient(135deg, var(--gradient-end), var(--gradient-start));
-      border: none;
-      padding: 1rem 2.5rem;
-      border-radius: 14px;
-      color: var(--text-color);
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 0 15px var(--neon-color);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+.contact-form:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.9);
+}
 
-    .contact-form button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 25px var(--neon-color);
-    }
+.contact-info {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 2px solid red;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+}
+.contact-info h3 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.contact-info p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
 
     .download-btn {
       display: inline-block;
@@ -365,15 +374,26 @@ body h1:not(.home h1) {
     </ul>
   </section>
 
-  <section id="contact" class="section contact">
-    <h2>Contact Me</h2>
+ <section id="contact" class="section contact">
+  <h2>Contact Me</h2>
+  <div class="contact-container">
+    <!-- Formulaire à gauche -->
     <form class="contact-form" action="mailto:your.email@example.com" method="POST" enctype="text/plain">
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Your Email" required />
       <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
       <button type="submit">Send Message</button>
     </form>
-  </section>
+
+    <!-- Infos de contact à droite -->
+    <div class="contact-info">
+      <h3>Contact Info</h3>
+      <p>📞 Phone : +216 24 356 888</p>
+      <p>📧 Gmail : <a href="mailto:oumaima.attafi410@gmail.com" style="color:white;">oumaima.attafi410@gmail.com</a></p>
+    </div>
+  </div>
+</section>
+
 
   <section id="resume" class="section resume">
     <h2>Resume</h2>
