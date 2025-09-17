@@ -200,103 +200,99 @@ body h1:not(.home h1) {
       text-decoration: underline;
     }
 
-   .contact-container {
+ /* Section Contact */
+#contact {
+  padding: 60px 10%;
+  color: white;
+}
+
+#contact h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: white;
+}
+
+.contact-container {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 2rem;
+  gap: 40px;
   flex-wrap: wrap;
 }
 
-/* Formulaire design avancé */
-.contact-form {
+/* Infos à gauche */
+.contact-info {
   flex: 1;
-  background: rgba(255, 255, 255, 0.08); 
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  padding: 2rem;
-  border-radius: 18px;
-  border: 2px solid red;
-  box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
-  animation: fadeInUp 1.2s ease forwards;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-info .info-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid red;
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.contact-info .info-box:hover {
+  transform: translateY(-5px);
+}
+
+/* Formulaire à droite */
+.contact-form {
+  flex: 2;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid red;
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 15px;
+}
+
+.contact-form h3 {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+.contact-form .highlight {
+  color: #007bff;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .contact-form input,
 .contact-form textarea {
-  width: 100%;
-  padding: 1rem;
-  margin-bottom: 1.2rem;
-  border: 2px solid rgba(255, 0, 0, 0.6);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: red;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
-  transform: scale(1.02);
-}
-
-/* Bouton dynamique */
-.contact-form button {
-  width: 100%;
-  padding: 1rem;
+  padding: 12px;
   border: none;
-  border-radius: 14px;
-  font-size: 1.1rem;
-  font-weight: bold;
+  outline: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
   color: white;
+}
+
+.contact-form textarea {
+  resize: none;
+  height: 120px;
+}
+
+.contact-form button {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: red;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
-  background: linear-gradient(135deg, #ff2e63, #ff4b5c);
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
-  transition: all 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 .contact-form button:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 35px rgba(255, 0, 0, 1);
-}
-
-/* Bloc infos contact */
-.contact-info {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  color: white;
-  padding: 2rem;
-  border-radius: 18px;
-  border: 2px solid red;
-  box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
-  animation: fadeInUp 1.4s ease forwards;
-}
-
-.contact-info h3 {
-  margin-bottom: 1rem;
-  text-align: center;
-  font-size: 1.8rem;
-  color: white;
-}
-
-.contact-info p {
-  font-size: 1.2rem;
-  margin: 0.8rem 0;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-.contact-info a {
-  color: white;
-  text-decoration: none;
-}
-.contact-info a:hover {
-  text-decoration: underline;
-  color: #ff4b5c;
+  background: darkred;
 }
 
 
@@ -427,23 +423,38 @@ body h1:not(.home h1) {
     </ul>
   </section>
 
- <section id="contact" class="section contact">
+<section id="contact">
   <h2>Contact Me</h2>
   <div class="contact-container">
-    <!-- Formulaire à gauche -->
-    <form class="contact-form" action="mailto:your.email@example.com" method="POST" enctype="text/plain">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-
-    <!-- Infos de contact à droite -->
+    
+    <!-- Infos de contact -->
     <div class="contact-info">
-      <h3>Contact Info</h3>
-      <p>📞 Phone : +216 24 356 888</p>
-      <p>📧 Gmail : <a href="mailto:oumaima.attafi410@gmail.com" style="color:white;">oumaima.attafi410@gmail.com</a></p>
+      <div class="info-box">
+        <h3>Phone</h3>
+        <p>+216 24 356 888</p>
+      </div>
+      <div class="info-box">
+        <h3>Email</h3>
+        <p>oumaima.attafi410@gmail.com</p>
+      </div>
+      <div class="info-box">
+        <h3>Location</h3>
+        <p>Bizerte, Tunisia</p>
+      </div>
     </div>
+
+    <!-- Formulaire -->
+    <div class="contact-form">
+      <h3>Let’s work <span class="highlight">together.</span></h3>
+      <form>
+        <input type="text" placeholder="Name *" required>
+        <input type="email" placeholder="Email *" required>
+        <input type="text" placeholder="Subject *" required>
+        <textarea placeholder="Your Message *" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
   </div>
 </section>
 
