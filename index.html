@@ -213,16 +213,15 @@ body h1:not(.home h1) {
 
 .contact-container {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 /* Formulaire transparent + blur */
 .contact-form {
-  flex: 1;
-  min-width: 300px;
+  width: 100%;
+  max-width: 600px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 12px;
@@ -261,19 +260,17 @@ body h1:not(.home h1) {
   color: white;
 }
 
-/* Infos de contact (logos) */
-.contact-info {
-  flex: 1;
-  min-width: 200px;
+/* Social buttons */
+.social-buttons {
+  margin-top: 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 20px;
 }
 
 .social-btn {
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -289,8 +286,8 @@ body h1:not(.home h1) {
 }
 
 .icon-logo {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
 }
 
 
@@ -423,34 +420,34 @@ body h1:not(.home h1) {
     </ul>
   </section>
 
-<!-- ===== CONTACT SECTION ===== -->
-<section id="contact" class="section contact">
+<!-- Contact Section -->
+<section id="contact" class="section">
   <h2>Contact Me</h2>
   <div class="contact-container">
 
     <!-- Formulaire -->
     <div class="contact-form">
       <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <input type="text" placeholder="Name *" required>
+        <input type="email" placeholder="Email *" required>
+        <input type="text" placeholder="Subject *" required>
+        <textarea placeholder="Your Message *" required></textarea>
         <button type="submit">Send Message</button>
       </form>
-    </div>
 
-    <!-- Infos de contact -->
-    <div class="contact-info">
-      <a href="https://www.linkedin.com/in/oumaimaattafi" target="_blank" class="social-btn">
-        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="icon-logo">
-      </a>
-      <a href="mailto:oumaima.attafi410@gmail.com" class="social-btn">
-        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail" class="icon-logo">
-      </a>
-      <a href="tel:+21624356888" class="social-btn">
-        <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" class="icon-logo">
-      </a>
+      <!-- Social buttons -->
+      <div class="social-buttons">
+        <a href="https://www.linkedin.com/in/oumaimaattafi" target="_blank" class="social-btn linkedin">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="icon-logo">
+        </a>
+        <a href="mailto:oumaima.attafi410@gmail.com" class="social-btn gmail">
+          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail" class="icon-logo">
+        </a>
+        <a href="tel:+21624356888" class="social-btn phone">
+          <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" class="icon-logo">
+        </a>
+      </div>
     </div>
-
   </div>
 </section>
 
