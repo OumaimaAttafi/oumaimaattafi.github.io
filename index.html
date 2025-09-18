@@ -200,63 +200,28 @@ body h1:not(.home h1) {
       text-decoration: underline;
     }
 
- /* Section Contact */
+/* Contact Section */
 #contact {
   padding: 60px 10%;
   color: white;
+  text-align: center;
 }
 
 #contact h2 {
-  text-align: center;
   margin-bottom: 40px;
-  color: white;
+  font-size: 2.5rem;
 }
 
-.contact-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-/* Infos à gauche */
-.contact-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.contact-info .info-box {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid red;
-  backdrop-filter: blur(10px);
-  padding: 20px;
-  border-radius: 15px;
-  transition: transform 0.3s ease;
-}
-
-.contact-info .info-box:hover {
-  transform: translateY(-5px);
-}
-
-/* Formulaire à droite */
+/* Form */
 .contact-form {
-  flex: 2;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid red;
-  backdrop-filter: blur(10px);
-  padding: 30px;
+  background: rgba(255, 255, 255, 0.05); /* transparent */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid white; /* thin white border */
   border-radius: 15px;
-}
-
-.contact-form h3 {
-  margin-bottom: 20px;
-  font-size: 1.5em;
-}
-
-.contact-form .highlight {
-  color: #007bff;
+  padding: 30px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .contact-form form {
@@ -268,8 +233,7 @@ body h1:not(.home h1) {
 .contact-form input,
 .contact-form textarea {
   padding: 12px;
-  border: none;
-  outline: none;
+  border: 1px solid rgba(255,255,255,0.3);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.08);
   color: white;
@@ -284,16 +248,44 @@ body h1:not(.home h1) {
   padding: 12px;
   border: none;
   border-radius: 10px;
-  background: red;
-  color: white;
+  background: white;
+  color: black;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .contact-form button:hover {
-  background: darkred;
+  background: #ddd;
 }
+
+/* Social buttons */
+.social-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  border: 1px solid white;
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  background: white;
+  color: black;
+}
+
+.linkedin { background: rgba(0,119,181,0.2); }
+.gmail { background: rgba(234,67,53,0.2); }
+.phone { background: rgba(0,200,83,0.2); }
+
+
 
 
     .download-btn {
@@ -423,29 +415,13 @@ body h1:not(.home h1) {
     </ul>
   </section>
 
-<section id="contact">
+<!-- Contact Section -->
+<section id="contact" class="section">
   <h2>Contact Me</h2>
   <div class="contact-container">
-    
-    <!-- Infos de contact -->
-    <div class="contact-info">
-      <div class="info-box">
-        <h3>Phone</h3>
-        <p>+216 24 356 888</p>
-      </div>
-      <div class="info-box">
-        <h3>Email</h3>
-        <p>oumaima.attafi410@gmail.com</p>
-      </div>
-      <div class="info-box">
-        <h3>Location</h3>
-        <p>Bizerte, Tunisia</p>
-      </div>
-    </div>
 
     <!-- Formulaire -->
     <div class="contact-form">
-      <h3>Let’s work <span class="highlight">together.</span></h3>
       <form>
         <input type="text" placeholder="Name *" required>
         <input type="email" placeholder="Email *" required>
@@ -453,8 +429,14 @@ body h1:not(.home h1) {
         <textarea placeholder="Your Message *" required></textarea>
         <button type="submit">Send Message</button>
       </form>
-    </div>
 
+      <!-- Social buttons -->
+      <div class="social-buttons">
+        <a href="https://www.linkedin.com/in/oumaimaattafi" target="_blank" class="social-btn linkedin">LinkedIn</a>
+        <a href="mailto:oumaima.attafi410@gmail.com" class="social-btn gmail">Gmail</a>
+        <a href="tel:+21624356888" class="social-btn phone">Phone</a>
+      </div>
+    </div>
   </div>
 </section>
 
