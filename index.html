@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Oumaima Attafi | Quantitative Analyst Portfolio</title>
 
-  <!-- Google Font -->
+  <!-- Google Font Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
 
+  <link rel="stylesheet" href="styles.css" />
   <style>
     :root {
       --gradient-start: #B8B7FD;
@@ -21,7 +22,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'DM Serif Display', sans-serif; /* Changed to Montserrat */
     }
 
     body {
@@ -102,24 +103,26 @@
       background-repeat: no-repeat;
       opacity: 1;
       z-index: -2;
+      filter: none;
     }
 
     #home::before { background-image: url('retouch_2025081113255905.jpg'); }
-    #about::before, #projects::before, #skills::before, #contact::before, #resume::before {
-      background-image: url('Design sans titre (8).png');
-    }
+    #about::before { background-image: url('Design sans titre (8).png'); }
+    #projects::before { background-image: url('Design sans titre (8).png'); }
+    #skills::before { background-image: url('Design sans titre (8).png'); }
+    #contact::before { background-image: url('Design sans titre (8).png'); }
+    #resume::before { background-image: url('Design sans titre (8).png'); }
 
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(50px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    h2, h3,
-    body h1:not(.home h1) {
-      text-align: center;
-      color: white;
-    }
-
+   h2, h3,
+body h1:not(.home h1) {
+  text-align: center;  /* centre les titres */
+  color: white;        /* texte blanc */
+}
     .home {
       text-align: left;
       padding-left: 5rem;
@@ -133,20 +136,6 @@
     .home h1 {
       font-size: 5rem;
       text-transform: uppercase;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 3px solid red;
-      width: 0;
-      animation: typing 4s steps(20, end) forwards, blink 0.8s infinite;
-    }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent }
     }
 
     .home p {
@@ -165,6 +154,7 @@
       font-weight: bold;
       box-shadow: 0 0 15px var(--neon-color);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
     }
 
     .home .who-btn:hover {
@@ -180,19 +170,20 @@
     }
 
     .project-card, .skills-list li {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
-      color: var(--accent-color);
-      padding: 1.5rem;
-      border-radius: 16px;
-      border: 2px solid red;
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+     background: rgba(255, 255, 255, 0.1); /* semi-transparent */
+  backdrop-filter: blur(12px);          /* effet flou */
+  -webkit-backdrop-filter: blur(12px);  /* compatibilité Safari */
+  color: var(--accent-color);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 2px solid red;               /* cadre rouge */
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); /* glow rouge */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .project-card:hover, .skills-list li:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 30px rgba(255, 0, 0, 0.9);
+       transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.9); /* glow plus intense au hover */
     }
 
     .skills-list li {
@@ -209,99 +200,104 @@
       text-decoration: underline;
     }
 
-    /* ===== CONTACT SECTION ===== */
-    .contact {
-      padding: 80px 20px;
-    }
+/* ===== CONTACT SECTION ===== */
+.contact {
+  padding: 80px 20px;
+}
 
-    .contact h2 {
-      text-align: center;
-      color: white;
-      margin-bottom: 100px;
-    }
+.contact h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 100px;
+}
 
-    .contact-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-    .contact-form {
-      width: 100%;
-      max-width: 600px;
-      background: transparent;
-      border: 1px solid red;
-      border-radius: 12px;
-      backdrop-filter: blur(10px);
-      padding: 30px;
-    }
+/* Formulaire transparent + blur */
+.contact-form {
+  width: 100%;
+  max-width: 600px;
+  background: transparent;
+  border: 1px solid red;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  padding: 30px;
+}
 
-    .contact-form form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-    .contact-form input,
-    .contact-form textarea {
-      padding: 12px;
-      background: rgba(255, 255, 255, 0.05);
-      border: none;
-      border-radius: 8px;
-      outline: none;
-      font-size: 1rem;
-    }
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+}
 
-    .contact-form button {
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      background: blue;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+.contact-form button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: blue;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-    .contact-form button:hover {
-      background: white;
-      color: black;
-    }
+.contact-form button:hover {
+  background: white;
+  color: black;
+}
 
-    .social-buttons {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
+/* Social buttons */
+.social-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
 
-    .social-btn {
-      width: 55px;
-      height: 55px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      border: 1px solid red;
-      background: white;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-    }
+.social-btn {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid red;
+  background: white;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
 
-    .social-btn:hover {
-      background: rgba(255, 255, 255, 0.05);
-    }
+.social-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  border: 1px solid red;
+}
 
-    .icon-logo {
-      width: 26px;
-      height: 26px;
-    }
+.icon-logo {
+  width: 26px;
+  height: 26px;
+}
 
-    .resume {
-      text-align: center;
-      color: white;
-    }
+
+.resume {
+  text-align: center; /* centre le contenu de la section*/
+  color: white;
+}
 
     .download-btn {
       display: inline-block;
@@ -314,6 +310,7 @@
       font-weight: bold;
       box-shadow: 0 0 15px var(--neon-color);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: center;
     }
 
     .download-btn:hover {
@@ -330,6 +327,7 @@
       margin-top: 2rem;
     }
 
+    /* About Me section styling */
     .about-content {
       display: flex;
       flex-wrap: wrap;
@@ -341,6 +339,21 @@
     .about-text {
       flex: 1 1 45%;
       color: white;
+    }
+
+    .about-text h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-text p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .about-photo {
+      flex: 1 1 45%;
+      text-align: center;
     }
 
     .about-photo img {
@@ -368,7 +381,92 @@
     <a href="#about" class="who-btn">About me</a>
   </section>
 
-  <!-- Keep all your other sections exactly as before -->
-  <!-- About, Projects, Skills, Contact, Resume, Footer -->
+  <!-- About Me section -->
+  <section id="about" class="section about">
+    <div class="about-content">
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>
+          I hold a <strong>Bachelor’s degree in Financial and Economic Engineering</strong> 
+          and a <strong>Master’s degree in Economic and Financial Modelling and Quantitative Analysis</strong>.  
+          My journey has shaped strong <strong>analytical skills</strong>, with a focus on 
+          <strong>quantitative analysis, data, finance, econometrics, and risk management</strong>.  
+          I thrive on transforming complex data into actionable insights and driving value through analysis.
+        </p>
+      </div>
+      <div class="about-photo">
+        <img src="https://via.placeholder.com/300x350" alt="Your Photo" />
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section projects">
+    <h2>Projects</h2>
+    <div class="project-list">
+      <div class="project-card">
+        <h3><a href="https://github.com/oumaimaattafi/Credit-Risk-Model" target="_blank" rel="noopener noreferrer">Credit Risk Model</a></h3>
+        <p>A model to predict credit risk for mortgage portfolios using machine learning techniques.</p>
+      </div>
+      <div class="project-card">
+        <h3><a href="https://github.com/oumaimaattafi/Fico-Bucketing-Model" target="_blank" rel="noopener noreferrer">FICO Bucketing</a></h3>
+        <p>Tool to bucket FICO scores and calculate probability of default for credit analysis.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section skills">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>Data Analysis & Visualization</li>
+      <li>Business Intelligence</li>
+      <li>SQL & Database Management</li>
+      <li>Excel & VBA</li>
+      <li>Python for Data Science</li>
+      <li>Communication & Presentation</li>
+      <li>Project Management</li>
+    </ul>
+  </section>
+
+<!-- Contact Section -->
+<section id="contact" class="section">
+  <h2>Contact Me</h2>
+  <div class="contact-container">
+
+    <!-- Formulaire -->
+    <div class="contact-form">
+      <form>
+        <input type="text" placeholder="Name *" required>
+        <input type="email" placeholder="Email *" required>
+        <input type="text" placeholder="Subject *" required>
+        <textarea placeholder="Your Message *" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <!-- Social buttons -->
+      <div class="social-buttons">
+        <a href="https://www.linkedin.com/in/oumaimaattafi" target="_blank" class="social-btn linkedin">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="icon-logo">
+        </a>
+        <a href="mailto:oumaima.attafi410@gmail.com" class="social-btn gmail">
+          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail" class="icon-logo">
+        </a>
+        <a href="tel:+21624356888" class="social-btn phone">
+          <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" class="icon-logo">
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section id="resume" class="section resume">
+    <h2>Resume</h2>
+    <p>Download my resume to learn more about my professional background.</p>
+    <a href="Oumaima_Attafi_Resume.pdf" download class="download-btn">Download Resume</a>
+  </section>
+
+  <footer>
+    <p>Made with ❤️ by Oumaima Attafi | All rights reserved ©</p>
+  </footer>
 </body>
 </html>
