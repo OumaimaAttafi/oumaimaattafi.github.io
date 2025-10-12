@@ -1,143 +1,374 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oumaima Attafi | Portfolio</title>
+  <title>Oumaima Attafi | Quantitative Analyst Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+
   <style>
-    /* --- Basic layout styling (keep your existing colors) --- */
-    body {
-      background-color: #0a0a0a;
-      color: #fff;
-      font-family: 'Poppins', sans-serif;
+    :root {
+      --gradient-start: #B8B7FD;
+      --gradient-end: #F6DDFF;
+      --text-color: #1b1b1e;
+      --accent-color: #ffffff;
+      --neon-color: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      scroll-behavior: smooth;
+      font-family: 'Montserrat', sans-serif;
     }
 
-    header, section {
+    body {
+      background: transparent;
+      color: var(--text-color);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    nav {
+      background: transparent;
+      backdrop-filter: blur(20px);
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 4rem;
+    }
+
+    nav ul li a {
+      color: red;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: var(--accent-color);
+      transform: scale(1.1);
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--neon-color);
+      box-shadow: 0 0 10px var(--neon-color), 0 0 20px var(--neon-color);
+      transition: width 0.4s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    .section {
+      padding: 14rem 3rem;
+      max-width: 1600px;
+      min-height: 100vh;
+      margin: auto;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    .section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 1;
+      z-index: -2;
+    }
+
+    #home::before { background-image: url('retouch_2025081113255905.jpg'); }
+    #about::before, #projects::before, #skills::before, #contact::before, #resume::before {
+      background-image: url('Design sans titre (8).png');
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2, h3,
+    body h1:not(.home h1) {
       text-align: center;
-      padding: 60px 20px;
+      color: white;
     }
 
-    h1, h2 {
+    .home {
+      text-align: left;
+      padding-left: 5rem;
+    }
+
+    .home h1,
+    .home p {
+      color: white;
+    }
+
+    .home h1 {
+      font-size: 5rem;
       text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    /* --- Neon glowing text effect --- */
-    .neon-text {
-      color: #00ffff;
-      text-shadow: 0 0 8px #00ffff, 0 0 16px #00ffff, 0 0 32px #00ffff;
-      font-weight: 700;
-    }
-
-    /* --- Typewriter container --- */
-    .typewriter {
-      display: inline-block;
-      border-right: 3px solid #00ffff;
       white-space: nowrap;
       overflow: hidden;
+      border-right: 3px solid red;
+      width: 0;
+      animation: typing 4s steps(20, end) forwards, blink 0.8s infinite;
     }
 
-    /* --- Typing cursor blink --- */
-    @keyframes blinkCursor {
-      50% { border-color: transparent; }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
     }
 
-    /* --- Title fade-in animation --- */
-    .animated-title {
-      opacity: 0;
-      transform: translateY(15px);
-      transition: opacity 1s ease, transform 1s ease;
+    @keyframes blink {
+      50% { border-color: transparent }
     }
 
-    .animated-title.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .home p {
+      font-size: 1.6rem;
+      margin-top: 1rem;
+    }
+
+    .home .who-btn {
+      display: inline-block;
+      margin-top: 3rem;
+      background: red;
+      padding: 0.8rem 1.8rem;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: bold;
+      box-shadow: 0 0 15px var(--neon-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .home .who-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px var(--neon-color);
+    }
+
+    .project-list, .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .project-card, .skills-list li {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      color: var(--accent-color);
+      padding: 1.5rem;
+      border-radius: 16px;
+      border: 2px solid red;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover, .skills-list li:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.9);
+    }
+
+    .skills-list li {
+      list-style: none;
+      font-size: 1.3rem;
+    }
+
+    .project-card h3 a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .project-card h3 a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact {
+      padding: 80px 20px;
+    }
+
+    .contact h2 {
+      text-align: center;
+      color: white;
+      margin-bottom: 100px;
+    }
+
+    .contact-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .contact-form {
+      width: 100%;
+      max-width: 600px;
+      background: transparent;
+      border: 1px solid red;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      padding: 30px;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: blue;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background: white;
+      color: black;
+    }
+
+    .social-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-btn {
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px solid red;
+      background: white;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .social-btn:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .icon-logo {
+      width: 26px;
+      height: 26px;
+    }
+
+    .resume {
+      text-align: center;
+      color: white;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 3rem;
+      background: red;
+      padding: 0.8rem 1.8rem;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: bold;
+      box-shadow: 0 0 15px var(--neon-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .download-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px var(--neon-color);
+    }
+
+    footer {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      color: var(--text-color);
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-top: 2rem;
+    }
+
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .about-text {
+      flex: 1 1 45%;
+      color: white;
+    }
+
+    .about-photo img {
+      max-width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 0 20px var(--neon-color);
     }
   </style>
 </head>
 <body>
-  <!-- HOME SECTION -->
-  <header>
-    <h1 id="typing-name" class="neon-text typewriter"></h1>
-    <p>Business Analyst | AI & Finance Enthusiast</p>
-  </header>
+  <nav class="navbar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#resume">Resume</a></li>
+    </ul>
+  </nav>
 
-  <!-- ABOUT -->
-  <section>
-    <h2 class="animated-title">About Me</h2>
-    <p>I’m Oumaima Attafi, passionate about AI, finance, and data analysis.</p>
+  <section id="home" class="section home">
+    <h1>Oumaima Attafi</h1>
+    <p>Bridging the gap between finance and data through quantitative analysis.</p>
+    <a href="#about" class="who-btn">About me</a>
   </section>
 
-  <!-- PROJECTS -->
-  <section>
-    <h2 class="animated-title">Projects</h2>
-    <p>Explore my latest analytical and AI-driven finance projects.</p>
-  </section>
-
-  <!-- SKILLS -->
-  <section>
-    <h2 class="animated-title">Skills</h2>
-    <p>Data analysis, econometrics, Excel, Python, Power BI, and deep learning foundations.</p>
-  </section>
-
-  <!-- CONTACT -->
-  <section>
-    <h2 class="animated-title">Contact Me</h2>
-    <p>Email: oumaimaattafi@gmail.com</p>
-  </section>
-
-  <!-- RESUME -->
-  <section>
-    <h2 class="animated-title">Resume</h2>
-    <a href="resume.pdf" download>Download My Resume</a>
-  </section>
-
-  <script>
-    /* --- Typing effect for name --- */
-    const nameElement = document.getElementById("typing-name");
-    const nameTexts = ["Oumaima Attafi", "Business Analyst", "AI & Finance Enthusiast"];
-    let nameIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function typeEffect() {
-      const currentText = nameTexts[nameIndex];
-      if (isDeleting) {
-        nameElement.textContent = currentText.substring(0, charIndex--);
-      } else {
-        nameElement.textContent = currentText.substring(0, charIndex++);
-      }
-
-      let speed = isDeleting ? 70 : 120;
-
-      if (!isDeleting && charIndex === currentText.length) {
-        speed = 1500; // pause before deleting
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        nameIndex = (nameIndex + 1) % nameTexts.length;
-        speed = 500;
-      }
-
-      nameElement.style.animation = "blinkCursor 0.8s step-end infinite";
-      setTimeout(typeEffect, speed);
-    }
-
-    document.addEventListener("DOMContentLoaded", typeEffect);
-
-    /* --- Fade-in animation for section titles --- */
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll('.animated-title').forEach(el => observer.observe(el));
-  </script>
+  <!-- Keep all your other sections exactly as before -->
+  <!-- About, Projects, Skills, Contact, Resume, Footer -->
 </body>
 </html>
