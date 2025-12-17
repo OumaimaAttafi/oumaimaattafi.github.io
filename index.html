@@ -310,42 +310,37 @@ body h1:not(.home h1) {
     }
 
     footer {
-      background: rgba(255, 255, 255, 0.15);
+      background:black;
       backdrop-filter: blur(12px);
-      color: var(--text-color);
+      color: white;
       text-align: center;
-      padding: 1.5rem 0;
+      padding: 1rem 0;
       margin-top: 1rem;
     }
 
     /* About Me section styling */
     .about-content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 2rem;
-    }
-    <div class="about-cards">
-  <div class="about-card animate-up">
-    <h3>M.Sc in Financial and Economic Modelling and Quantitative Analysis</h3>
-    <p>Master’s degree focusing on advanced quantitative methods, econometrics, and financial modeling.</p>
-  </div>
-  <div class="about-card animate-up">
-    <h3>B.Sc in Financial and Economic Engineering</h3>
-    <p>Undergraduate degree covering finance, economics, and quantitative problem-solving techniques.</p>
-  </div>
-</div>
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap; /* allows responsive stacking on smaller screens */
+}
 
-.about-cards {
-  flex: 1 1 45%;
+.about-text {
+  flex: 1 1 55%; /* left column occupies ~55% of width */
+  color: white;
+}
+
+.about-education {
+  flex: 1 1 40%; /* right column ~40% of width */
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
 .about-card {
-  background: rgba(255, 255, 255, 0.1); /* same style as project cards */
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   color: var(--accent-color);
@@ -360,6 +355,7 @@ body h1:not(.home h1) {
   transform: scale(1.05);
   box-shadow: 0 0 30px rgba(255, 0, 0, 0.9);
 }
+
     .about-text {
       flex: 1 1 45%;
       color: white;
@@ -373,17 +369,6 @@ body h1:not(.home h1) {
     .about-text p {
       font-size: 1.2rem;
       line-height: 1.6;
-    }
-
-    .about-photo {
-      flex: 1 1 45%;
-      text-align: center;
-    }
-
-    .about-photo img {
-      max-width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 0 20px var(--neon-color);
     }
 
     /* ===== ANIMATION CLASSES ===== */
@@ -419,33 +404,40 @@ body h1:not(.home h1) {
     <p class="animate-text">Quantitative Analysis | B.Sc. in Financial and Economic Engineering</p>
     <a href="#about" class="who-btn">About me</a>
   </section>
-
+  
   <!-- About Me section -->
-  <section id="about" class="section about">
-   <div class="about-content">
-  <div class="about-text">
-    <h2 class="animate-text">About Me</h2>
-    <p class="animate-text">
-      Driven by a strong academic foundation in financial modeling, statistics, and econometrics, my interests lie in applying quantitative methods to the analysis of financial markets.</p>
-    <p>My work focuses on Python-based data analysis, time-series modeling, and empirical finance, with an emphasis on translating financial theory into structured, data-driven frameworks.</p> 
-    <p>I am particularly drawn to asset pricing, risk modeling, and quantitative investment strategies, approaching these areas with analytical rigor, intellectual curiosity, and a continuous learning mindset.</p> 
-    <p>My objective is to progressively develop robust quantitative skills while contributing disciplined, methodical thinking in research-oriented financial environments.
-    </p>
-  </div>
-
-  <div class="about-cards">
-    <div class="about-card animate-up">
-      <h3>M.Sc in Financial and Economic Modelling and Quantitative Analysis</h3>
-      <p>Master’s degree focusing on advanced quantitative methods, econometrics, and financial modeling.</p>
+<section id="about" class="section about">
+  <div class="about-content">
+    <!-- Left column: About Me text -->
+    <div class="about-text">
+      <h2 class="animate-text">About Me</h2>
+      <p class="animate-text">
+        Driven by a strong academic foundation in financial modeling, statistics, and econometrics, my interests lie in applying quantitative methods to the analysis of financial markets.
+      </p>
+      <p>
+        My work focuses on Python-based data analysis, time-series modeling, and empirical finance, with an emphasis on translating financial theory into structured, data-driven frameworks.
+      </p> 
+      <p>
+        I am particularly drawn to asset pricing, risk modeling, and quantitative investment strategies, approaching these areas with analytical rigor, intellectual curiosity, and a continuous learning mindset.
+      </p> 
+      <p>
+        My objective is to progressively develop robust quantitative skills while contributing disciplined, methodical thinking in research-oriented financial environments.
+      </p>
     </div>
-    <div class="about-card animate-up">
-      <h3>B.Sc in Financial and Economic Engineering</h3>
-      <p>Undergraduate degree covering finance, economics, and quantitative problem-solving techniques.</p>
+
+    <!-- Right column: Education cards -->
+    <div class="about-education">
+      <div class="about-card animate-up">
+        <h3>M.Sc in Financial and Economic Modelling and Quantitative Analysis</h3>
+        <p>Master’s degree focusing on advanced quantitative methods, econometrics, and financial modeling.</p>
+      </div>
+      <div class="about-card animate-up">
+        <h3>B.Sc in Financial and Economic Engineering</h3>
+        <p>Undergraduate degree covering finance, economics, and quantitative problem-solving techniques.</p>
+      </div>
     </div>
   </div>
-</div>
-
-  </section>
+</section>
 
   <section id="projects" class="section projects">
     <h2 class="animate-text">Projects</h2>
