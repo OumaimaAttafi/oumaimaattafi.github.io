@@ -376,9 +376,9 @@ body h1:not(.home h1) {
   </nav>
 
   <section id="home" class="section home">
-    <h1>Oumaima Attafi</h1>
-    <p>Junior Quantitative Analyst | M.Sc. in Financial and Economic Modeling and</p>
-    <p></p>Quantitative Analysis | B.Sc. in Financial and Economic Engineering</p>
+    <h1 class="animate-text">Oumaima Attafi</h1>
+    <p class="animate-text">Junior Quantitative Analyst | M.Sc. in Financial and Economic Modeling and</p>
+    <p class="animate-text">Quantitative Analysis | B.Sc. in Financial and Economic Engineering</p>
     <a href="#about" class="who-btn">About me</a>
   </section>
 
@@ -386,8 +386,8 @@ body h1:not(.home h1) {
   <section id="about" class="section about">
     <div class="about-content">
       <div class="about-text">
-        <h2>About Me</h2>
-        <p>
+        <h2 class="animate-text">About Me</h2>
+        <p class="animate-text">
           Driven by a strong academic foundation in financial modeling, statistics, and econometrics, my interests lie in applying quantitative methods to the analysis of financial markets.</p>
         <p>My work focuses on Python-based data analysis, time-series modeling, and empirical finance, with an emphasis on translating financial theory into structured, data-driven frameworks.</p> 
         <p>I am particularly drawn to asset pricing, risk modeling, and quantitative investment strategies, approaching these areas with analytical rigor, intellectual curiosity, and a continuous learning mindset.</p> 
@@ -398,6 +398,26 @@ body h1:not(.home h1) {
       </div>
     </div>
   </section>
+  <script>
+  const animatedElements = document.querySelectorAll('.animate-text');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target); // animate once
+        }
+      });
+    },
+    {
+      threshold: 0.2
+    }
+  );
+
+  animatedElements.forEach(el => observer.observe(el));
+</script>
+
 
   <section id="projects" class="section projects">
     <h2>Projects</h2>
