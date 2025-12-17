@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Oumaima Attafi | Quantitative Analyst</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
 
 <style>
-/* ===== GLOBAL ===== */
+:root {
+  --gradient-start: black;
+  --gradient-end: black;
+  --text-color: #1b1b1e;
+  --accent-color: #ffffff;
+  --neon-color: #ffffff;
+}
+
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Serif Display', sans-serif;
 }
 
 html {
@@ -21,43 +28,51 @@ html {
 }
 
 body {
-  background: black;
+  background: transparent;
+  color: var(--text-color);
+  line-height: 1.8;
   overflow-x: hidden;
 }
 
-/* ===== NAVBAR ===== */
+/* ===== NAV ===== */
 nav {
+  background: transparent;
+  backdrop-filter: blur(20px);
+  padding: 1rem 2rem;
   position: fixed;
-  top: 0;
   width: 100%;
+  top: 0;
   z-index: 1000;
-  backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(255,255,255,0.3);
 }
 
 nav ul {
   display: flex;
   justify-content: center;
-  gap: 4rem;
   list-style: none;
-  padding: 1.2rem;
+  gap: 4rem;
 }
 
-nav a {
+nav ul li a {
   color: red;
-  font-weight: bold;
   text-decoration: none;
+  font-weight: bold;
   transition: transform 0.3s ease;
 }
 
-nav a:hover {
+nav ul li a:hover {
   transform: scale(1.1);
 }
 
 /* ===== SECTION ANIMATION (RETRIGGERABLE) ===== */
 .section {
-  min-height: 100vh;
   padding: 14rem 3rem;
+  max-width: 1600px;
+  min-height: 100vh;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+
   opacity: 0;
   transform: translateY(90px);
   transition: opacity 0.9s ease, transform 0.9s ease;
@@ -69,117 +84,98 @@ nav a:hover {
 }
 
 /* ===== BACKGROUNDS ===== */
-#home    { background: url('retouch_2025112721184479.jpg') center/cover; }
-#about   { background: url('download (45).jpg') center/cover; }
-#projects{ background: url('retouch_2025120519222551.jpg') center/cover; }
-#skills  { background: url('download (45).jpg') center/cover; }
-#contact { background: url('form.jpg') center/cover; }
-#resume  { background: url('download (45).jpg') center/cover; }
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
 
-/* ===== HOME ===== */
+#home::before { background-image: url('retouch_2025112721184479.jpg'); }
+#about::before { background-image: url('download (45).jpg'); }
+#projects::before { background-image: url('retouch_2025120519222551.jpg'); }
+#skills::before { background-image: url('download (45).jpg'); }
+#contact::before { background-image: url('form.jpg'); }
+#resume::before { background-image: url('download (45).jpg'); }
+
+/* ===== TEXT ===== */
+h2, h3, body h1:not(.home h1) {
+  text-align: center;
+  color: white;
+}
+
+.home {
+  padding-left: 5rem;
+}
+
 .home h1 {
   font-size: 5rem;
   color: white;
 }
 
 .home p {
+  font-size: 1.6rem;
   color: white;
-  font-size: 1.5rem;
-  margin-top: 0.6rem;
 }
 
 .who-btn {
   display: inline-block;
   margin-top: 3rem;
   background: red;
-  padding: 0.9rem 2rem;
+  padding: 0.8rem 1.8rem;
   border-radius: 12px;
   text-decoration: none;
   color: white;
   font-weight: bold;
 }
 
-/* ===== TITLES ===== */
-h2, h3 {
-  color: white;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-/* ===== PROJECTS ===== */
-.project-list {
+/* ===== PROJECTS & SKILLS ===== */
+.project-list, .skills-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
   gap: 2rem;
+  margin-top: 3rem;
 }
 
-.project-card {
+.project-card, .skills-list li {
   background: rgba(255,255,255,0.1);
   backdrop-filter: blur(12px);
-  border: 2px solid red;
-  border-radius: 18px;
-  padding: 2rem;
   color: white;
-  transition: transform 0.4s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-10px);
-}
-
-/* ===== SKILLS ===== */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 2.5rem;
-}
-
-.skill-card {
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(12px);
+  padding: 1.5rem;
+  border-radius: 16px;
   border: 2px solid red;
-  border-radius: 18px;
-  padding: 2rem;
-  color: white;
-  transition: transform 0.4s ease;
+  transition: transform 0.3s ease;
 }
 
-.skill-card:hover {
-  transform: translateY(-10px);
-}
-
-.skill-card ul {
-  list-style: none;
-}
-
-.skill-card li {
-  margin-bottom: 0.7rem;
+.project-card:hover, .skills-list li:hover {
+  transform: scale(1.08);
 }
 
 /* ===== CONTACT ===== */
 .contact-form {
   max-width: 600px;
   margin: auto;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
   border: 1px solid red;
-  padding: 2rem;
-  border-radius: 14px;
+  border-radius: 12px;
+  padding: 30px;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  margin-bottom: 1rem;
-  padding: 0.8rem;
+  padding: 12px;
+  margin-bottom: 15px;
   border-radius: 8px;
   border: none;
 }
 
 .contact-form button {
-  width: 100%;
-  padding: 0.9rem;
   background: red;
   color: white;
+  padding: 12px;
   border: none;
   border-radius: 8px;
   font-weight: bold;
@@ -187,8 +183,9 @@ h2, h3 {
 
 /* ===== FOOTER ===== */
 footer {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
   text-align: center;
-  color: white;
   padding: 1.5rem;
 }
 </style>
@@ -197,100 +194,67 @@ footer {
 <body>
 
 <nav>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#resume">Resume</a></li>
-  </ul>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About Me</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="#resume">Resume</a></li>
+</ul>
 </nav>
 
 <section id="home" class="section home">
-  <h1>Oumaima Attafi</h1>
-  <p>Junior Quantitative Analyst</p>
-  <p>MSc Financial & Economic Modeling</p>
-  <a href="#about" class="who-btn">About Me</a>
+<h1>Oumaima Attafi</h1>
+<p>Junior Quantitative Analyst</p>
+<a href="#about" class="who-btn">About me</a>
 </section>
 
 <section id="about" class="section">
-  <h2>About Me</h2>
-  <p style="color:white; max-width:900px; margin:auto;">
-    Driven by quantitative finance, econometrics, and data-driven market analysis,
-    with a strong interest in risk modeling and empirical asset pricing.
-  </p>
+<h2>About Me</h2>
+<p style="color:white; max-width:900px; margin:auto;">
+Driven by a strong academic foundation in financial modeling, statistics, and econometrics.
+</p>
 </section>
 
 <section id="projects" class="section">
-  <h2>Projects</h2>
-  <div class="project-list">
-    <div class="project-card">Credit Risk Model</div>
-    <div class="project-card">FICO Bucketing</div>
-  </div>
+<h2>Projects</h2>
+<div class="project-list">
+<div class="project-card">Credit Risk Model</div>
+<div class="project-card">FICO Bucketing</div>
+</div>
 </section>
 
 <section id="skills" class="section">
-  <h2>Skills</h2>
-
-  <div class="skills-grid">
-    <div class="skill-card">
-      <h3>Econometrics</h3>
-      <ul>
-        <li>OLS & multivariate regression</li>
-        <li>Time-series analysis</li>
-        <li>Volatility & risk measures</li>
-      </ul>
-    </div>
-
-    <div class="skill-card">
-      <h3>Data</h3>
-      <ul>
-        <li>Data cleaning</li>
-        <li>EDA</li>
-        <li>Feature engineering</li>
-      </ul>
-    </div>
-
-    <div class="skill-card">
-      <h3>Tools</h3>
-      <ul>
-        <li>Python (NumPy, pandas)</li>
-        <li>Excel / VBA</li>
-        <li>Git</li>
-      </ul>
-    </div>
-
-    <div class="skill-card">
-      <h3>Machine Learning & Deep Learning</h3>
-      <ul>
-        <li>Supervised learning</li>
-        <li>Model validation</li>
-        <li>Neural network fundamentals</li>
-      </ul>
-    </div>
-  </div>
+<h2>Skills</h2>
+<ul class="skills-list">
+<li>Time-series analysis</li>
+<li>Regression analysis</li>
+<li>Machine learning</li>
+<li>Risk measures</li>
+</ul>
 </section>
 
 <section id="contact" class="section">
-  <h2>Contact</h2>
-  <div class="contact-form">
-    <input placeholder="Name">
-    <input placeholder="Email">
-    <textarea placeholder="Message"></textarea>
-    <button>Send Message</button>
-  </div>
+<h2>Contact</h2>
+<div class="contact-form">
+<input placeholder="Name">
+<input placeholder="Email">
+<textarea placeholder="Message"></textarea>
+<button>Send</button>
+</div>
 </section>
 
-<section id="resume" class="section">
-  <h2>Resume</h2>
-  <a href="Oumaima_Attafi_Resume.pdf" class="who-btn">Download Resume</a>
+<section id="resume" class="section resume">
+<h2>Resume</h2>
+<a href="Oumaima_Attafi_Resume.pdf" class="who-btn">Download Resume</a>
 </section>
 
 <footer>
-  Made by Oumaima Attafi ©
+<p>Made by Oumaima Attafi ©</p>
 </footer>
 
+<!-- ===== SCROLL ANIMATION SCRIPT ===== -->
 <script>
 const sections = document.querySelectorAll('.section');
 
