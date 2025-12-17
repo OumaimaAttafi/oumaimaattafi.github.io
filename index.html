@@ -1,18 +1,14 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oumaima Attafi | Quantitative Analyst </title>
+  <title>Oumaima Attafi | Quantitative Analyst</title>
 
-  <!-- Google Font Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css" />
   <style>
     :root {
-      --gradient-start: black;
-      --gradient-end: black;
       --text-color: #1b1b1e;
       --accent-color: #ffffff;
       --neon-color: #ffffff;
@@ -22,7 +18,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'DM Serif Display', sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
 
     body {
@@ -33,53 +29,28 @@
     }
 
     nav {
-      background: transparent;
-      backdrop-filter: blur(20px);
-      padding: 1rem 2rem;
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(20px);
+      padding: 1rem 2rem;
     }
 
     nav ul {
       display: flex;
       justify-content: center;
-      list-style: none;
       gap: 4rem;
+      list-style: none;
     }
 
     nav ul li a {
       color: red;
       text-decoration: none;
       font-weight: bold;
-      position: relative;
-      transition: color 0.3s ease, transform 0.3s ease;
     }
 
-    nav ul li a:hover {
-      color: var(--accent-color);
-      transform: scale(1.1);
-    }
-
-    nav ul li a::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: -5px;
-      left: 0;
-      background-color: var(--neon-color);
-      box-shadow: 0 0 10px var(--neon-color), 0 0 20px var(--neon-color);
-      transition: width 0.4s ease;
-    }
-
-    nav ul li a:hover::after {
-      width: 100%;
-    }
-
-    /* ===== SECTION ANIMATION (RETRIGGERABLE) ===== */
+    /* ===== SECTION (NO animation here) ===== */
     .section {
       padding: 14rem 3rem;
       max-width: 1600px;
@@ -87,29 +58,15 @@
       margin: auto;
       position: relative;
       overflow: hidden;
-
-      opacity: 0;
-      transform: translateY(80px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-
-    .section.active {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     .section::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
+      inset: 0;
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
-      opacity: 1;
-      z-index: -2;
+      z-index: -1;
     }
 
     #home::before { background-image: url('retouch_2025112721184479.jpg'); }
@@ -119,20 +76,26 @@
     #contact::before { background-image: url('form.jpg'); }
     #resume::before { background-image: url('download (45).jpg'); }
 
-    h2, h3,
-    body h1:not(.home h1) {
-      text-align: center;
+    /* ===== TEXT ANIMATION (THIS IS THE KEY PART) ===== */
+    .animate-text {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .animate-text.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h1, h2, h3, p {
       color: white;
+      text-align: center;
     }
 
     .home {
       text-align: left;
       padding-left: 5rem;
-    }
-
-    .home h1,
-    .home p {
-      color: white;
     }
 
     .home h1 {
@@ -142,72 +105,16 @@
 
     .home p {
       font-size: 1.6rem;
-      margin-top: 1rem;
-    }
-
-    .home .who-btn {
-      display: inline-block;
-      margin-top: 3rem;
-      background: red;
-      padding: 0.8rem 1.8rem;
-      border-radius: 12px;
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      box-shadow: 0 0 15px var(--neon-color);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .home .who-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px var(--neon-color);
-    }
-
-    .project-list, .skills-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .project-card, .skills-list li {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
-      color: var(--accent-color);
-      padding: 1.5rem;
-      border-radius: 16px;
-      border: 2px solid red;
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .project-card:hover, .skills-list li:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 30px rgba(255, 0, 0, 0.9);
-    }
-
-    .skills-list li {
-      list-style: none;
-      font-size: 1.3rem;
-    }
-
-    footer {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(12px);
-      color: var(--text-color);
-      text-align: center;
-      padding: 1.5rem 0;
-      margin-top: 1rem;
     }
   </style>
 </head>
 
 <body>
 
-<nav class="navbar">
+<nav>
   <ul>
     <li><a href="#home">Home</a></li>
-    <li><a href="#about">About Me</a></li>
+    <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -216,39 +123,37 @@
 </nav>
 
 <section id="home" class="section home">
-  <h1>Oumaima Attafi</h1>
-  <p>Junior Quantitative Analyst</p>
+  <h1 class="animate-text">Oumaima Attafi</h1>
+  <p class="animate-text">Junior Quantitative Analyst</p>
+  <p class="animate-text">M.Sc. in Financial & Economic Modeling</p>
 </section>
 
-<section id="about" class="section about">
-  <h2>About Me</h2>
+<section id="about" class="section">
+  <h2 class="animate-text">About Me</h2>
+  <p class="animate-text">Quantitative finance, econometrics, and data-driven research.</p>
 </section>
 
-<section id="projects" class="section projects">
-  <h2>Projects</h2>
+<section id="projects" class="section">
+  <h2 class="animate-text">Projects</h2>
 </section>
 
-<section id="skills" class="section skills">
-  <h2>Skills</h2>
+<section id="skills" class="section">
+  <h2 class="animate-text">Skills</h2>
 </section>
 
 <section id="contact" class="section">
-  <h2>Contact Me</h2>
+  <h2 class="animate-text">Contact Me</h2>
 </section>
 
-<section id="resume" class="section resume">
-  <h2>Resume</h2>
+<section id="resume" class="section">
+  <h2 class="animate-text">Resume</h2>
 </section>
 
-<footer>
-  <p>Made with ❤️ by Oumaima Attafi | All rights reserved ©</p>
-</footer>
-
-<!-- ===== SECTION ANIMATION SCRIPT ===== -->
+<!-- ===== TEXT OBSERVER (REPLAYS EVERY TIME) ===== -->
 <script>
-  const sections = document.querySelectorAll('.section');
+  const texts = document.querySelectorAll('.animate-text');
 
-  const sectionObserver = new IntersectionObserver(
+  const observer = new IntersectionObserver(
     entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -258,10 +163,10 @@
         }
       });
     },
-    { threshold: 0.45 }
+    { threshold: 0.4 }
   );
 
-  sections.forEach(section => sectionObserver.observe(section));
+  texts.forEach(text => observer.observe(text));
 </script>
 
 </body>
