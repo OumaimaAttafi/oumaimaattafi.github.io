@@ -1,14 +1,18 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oumaima Attafi | Quantitative Analyst</title>
+  <title>Oumaima Attafi | Quantitative Analyst </title>
 
+  <!-- Google Font Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
 
+  <link rel="stylesheet" href="styles.css" />
   <style>
     :root {
+      --gradient-start: black;
+      --gradient-end: black;
       --text-color: #1b1b1e;
       --accent-color: #ffffff;
       --neon-color: #ffffff;
@@ -18,7 +22,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'DM Serif Display', sans-serif; /* Changed to Montserrat */
     }
 
     body {
@@ -29,28 +33,52 @@
     }
 
     nav {
+      background: transparent;
+      backdrop-filter: blur(20px);
+      padding: 1rem 2rem;
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
-      backdrop-filter: blur(20px);
-      padding: 1rem 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     nav ul {
       display: flex;
       justify-content: center;
-      gap: 4rem;
       list-style: none;
+      gap: 4rem;
     }
 
     nav ul li a {
       color: red;
       text-decoration: none;
       font-weight: bold;
+      position: relative;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
 
-    /* ===== SECTION (NO animation here) ===== */
+    nav ul li a:hover {
+      color: var(--accent-color);
+      transform: scale(1.1);
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--neon-color);
+      box-shadow: 0 0 10px var(--neon-color), 0 0 20px var(--neon-color);
+      transition: width 0.4s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
     .section {
       padding: 14rem 3rem;
       max-width: 1600px;
@@ -63,10 +91,16 @@
     .section::before {
       content: '';
       position: absolute;
-      inset: 0;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
       background-size: cover;
       background-position: center;
-      z-index: -1;
+      background-repeat: no-repeat;
+      opacity: 1;
+      z-index: -2;
+      filter: none;
     }
 
     #home::before { background-image: url('retouch_2025112721184479.jpg'); }
@@ -76,26 +110,19 @@
     #contact::before { background-image: url('form.jpg'); }
     #resume::before { background-image: url('download (45).jpg'); }
 
-    /* ===== TEXT ANIMATION (THIS IS THE KEY PART) ===== */
-    .animate-text {
-      opacity: 0;
-      transform: translateY(60px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .animate-text.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    h1, h2, h3, p {
-      color: white;
-      text-align: center;
-    }
-
+   h2, h3,
+body h1:not(.home h1) {
+  text-align: center;  /* centre les titres */
+  color: white;        /* texte blanc */
+}
     .home {
       text-align: left;
       padding-left: 5rem;
+    }
+
+    .home h1,
+    .home p {
+      color: white;
     }
 
     .home h1 {
@@ -105,69 +132,367 @@
 
     .home p {
       font-size: 1.6rem;
+      margin-top: 1rem;
+    }
+
+    .home .who-btn {
+      display: inline-block;
+      margin-top: 3rem;
+      background: red;
+      padding: 0.8rem 1.8rem;
+      border-radius: 12px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 0 15px var(--neon-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .home .who-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px var(--neon-color);
+    }
+
+    .project-list, .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .project-card, .skills-list li {
+     background: rgba(255, 255, 255, 0.1); /* semi-transparent */
+  backdrop-filter: blur(12px);          /* effet flou */
+  -webkit-backdrop-filter: blur(12px);  /* compatibilité Safari */
+  color: var(--accent-color);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 2px solid red;               /* cadre rouge */
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); /* glow rouge */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover, .skills-list li:hover {
+       transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.9); /* glow plus intense au hover */
+    }
+
+    .skills-list li {
+      list-style: none;
+      font-size: 1.3rem;
+    }
+
+    .project-card h3 a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .project-card h3 a:hover {
+      text-decoration: underline;
+    }
+
+/* ===== CONTACT SECTION ===== */
+.contact {
+  padding: 80px 20px;
+}
+
+.contact h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 100px;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Formulaire transparent + blur */
+.contact-form {
+  width: 100%;
+  max-width: 600px;
+  background: transparent;
+  border: 1px solid red;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  padding: 30px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: red;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: white;
+  color: black;
+}
+
+/* Social buttons */
+.social-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-btn {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid red;
+  background: white;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  border: 1px solid red;
+}
+
+.icon-logo {
+  width: 26px;
+  height: 26px;
+}
+
+
+.resume {
+  text-align: center; /* centre le contenu de la section*/
+  color: white;
+}
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 3rem;
+      background: red;
+      padding: 0.8rem 1.8rem;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: bold;
+      box-shadow: 0 0 15px var(--neon-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: center;
+    }
+
+    .download-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px var(--neon-color);
+    }
+
+    footer {
+      background:black;
+      backdrop-filter: blur(12px);
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-top: 1rem;
+    }
+
+    /* About Me section styling */
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .about-text {
+      flex: 1 1 45%;
+      color: white;
+    }
+
+    .about-text h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-text p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .about-photo {
+      flex: 1 1 45%;
+      text-align: center;
+    }
+
+    .about-photo img {
+      max-width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 0 20px var(--neon-color);
+    }
+
+    /* ===== NEW TEXT ANIMATION ===== */
+    .animate-text {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: transform 0.8s ease, opacity 0.8s ease;
+    }
+
+    .animate-text.active {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
-
 <body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#resume">Resume</a></li>
+    </ul>
+  </nav>
 
-<nav>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#resume">Resume</a></li>
-  </ul>
-</nav>
+  <section id="home" class="section home">
+    <h1 class="animate-text">Oumaima Attafi</h1>
+    <p class="animate-text">Junior Quantitative Analyst | M.Sc. in Financial and Economic Modeling and</p>
+    <p class="animate-text">Quantitative Analysis | B.Sc. in Financial and Economic Engineering</p>
+    <a href="#about" class="who-btn">About me</a>
+  </section>
 
-<section id="home" class="section home">
-  <h1 class="animate-text">Oumaima Attafi</h1>
-  <p class="animate-text">Junior Quantitative Analyst</p>
-  <p class="animate-text">M.Sc. in Financial & Economic Modeling</p>
-</section>
+  <!-- About Me section -->
+  <section id="about" class="section about">
+    <div class="about-content">
+      <div class="about-text">
+        <h2 class="animate-text">About Me</h2>
+        <p class="animate-text">
+          Driven by a strong academic foundation in financial modeling, statistics, and econometrics, my interests lie in applying quantitative methods to the analysis of financial markets.</p>
+        <p>My work focuses on Python-based data analysis, time-series modeling, and empirical finance, with an emphasis on translating financial theory into structured, data-driven frameworks.</p> 
+        <p>I am particularly drawn to asset pricing, risk modeling, and quantitative investment strategies, approaching these areas with analytical rigor, intellectual curiosity, and a continuous learning mindset.</p> 
+        <p>My objective is to progressively develop robust quantitative skills while contributing disciplined, methodical thinking in research-oriented financial environments.
+        </p>
+      </div>
+      <div class="about-photo">
+      </div>
+    </div>
+  </section>
 
-<section id="about" class="section">
-  <h2 class="animate-text">About Me</h2>
-  <p class="animate-text">Quantitative finance, econometrics, and data-driven research.</p>
-</section>
+  <section id="projects" class="section projects">
+    <h2 class="animate-text">Projects</h2>
+    <div class="project-list">
+      <div class="project-card">
+        <h3><a href="https://github.com/oumaimaattafi/Credit-Risk-Model" target="_blank" rel="noopener noreferrer">Credit Risk Model</a></h3>
+        <p>A model to predict credit risk for mortgage portfolios using machine learning techniques.</p>
+      </div>
+      <div class="project-card">
+        <h3><a href="https://github.com/oumaimaattafi/Fico-Bucketing-Model" target="_blank" rel="noopener noreferrer">FICO Bucketing</a></h3>
+        <p>Tool to bucket FICO scores and calculate probability of default for credit analysis.</p>
+      </div>
+    </div>
+  </section>
 
-<section id="projects" class="section">
-  <h2 class="animate-text">Projects</h2>
-</section>
+  <section id="skills" class="section skills">
+    <h2 class="animate-text">Skills</h2>
+    <ul class="skills-list">
+      <li>Time-series analysis (returns, volatility, stationarity)</li>
+      <li>Regression analysis (OLS, multivariate models)</li>
+      <li>Machine and Deep learning</li>
+      <li>Asset pricing fundamentals</li>
+      <li>Risk measures (volatility, VaR, basic stress testing)</li>
+      <li>Excel and VBA</li>
+      <li>Python (NumPy, pandas, SciPy, statsmodels)</li>
+      <li>Data cleaning, transformation, and exploratory data analysis</li>
+      <li>Econometric modeling</li>
+      <li>Time-series models (ARIMA-type concepts)</li>
+      <li>Model validation and diagnostic testing</li>
+      <li>Feature engineering for financial data</li>
+    </ul>
+  </section>
 
-<section id="skills" class="section">
-  <h2 class="animate-text">Skills</h2>
-</section>
-
+<!-- Contact Section -->
 <section id="contact" class="section">
   <h2 class="animate-text">Contact Me</h2>
+  <div class="contact-container">
+    <!-- Formulaire -->
+    <div class="contact-form">
+      <form>
+        <input type="text" placeholder="Name *" required>
+        <input type="email" placeholder="Email *" required>
+        <input type="text" placeholder="Subject *" required>
+        <textarea placeholder="Your Message *" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <!-- Social buttons -->
+      <div class="social-buttons">
+        <a href="https://www.linkedin.com/in/oumaimaattafi" target="_blank" class="social-btn linkedin">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="icon-logo">
+        </a>
+        <a href="mailto:oumaima.attafi410@gmail.com" class="social-btn gmail">
+          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail" class="icon-logo">
+        </a>
+        <a href="tel:+21624356888" class="social-btn phone">
+          <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" class="icon-logo">
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="resume" class="section">
-  <h2 class="animate-text">Resume</h2>
-</section>
+  <section id="resume" class="section resume">
+    <h2 class="animate-text">Resume</h2>
+    <p>Download my resume to learn more about my professional background.</p>
+    <a href="Oumaima_Attafi_Resume.pdf" download class="download-btn">Download Resume</a>
+  </section>
 
-<!-- ===== TEXT OBSERVER (REPLAYS EVERY TIME) ===== -->
-<script>
-  const texts = document.querySelectorAll('.animate-text');
+  <footer>
+    <p>Made with ❤️ by Oumaima Attafi | All rights reserved ©</p>
+  </footer>
 
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        } else {
-          entry.target.classList.remove('active');
-        }
-      });
-    },
-    { threshold: 0.4 }
-  );
+  <!-- ===== NEW SCRIPT FOR TEXT ANIMATION ===== -->
+  <script>
+    const animatedText = document.querySelectorAll('.animate-text');
 
-  texts.forEach(text => observer.observe(text));
-</script>
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          } else {
+            entry.target.classList.remove('active');
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
 
+    animatedText.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
