@@ -87,9 +87,12 @@
       position: relative;
       overflow: hidden;
       opacity: 0;
-      transform: translateY(50px);
-      animation: fadeInUp 1s forwards;
+      transform: translateY(90px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
     }
+    .section.active {
+  opacity: 1;
+  transform: translateY(0);}
 
     .section::before {
       content: '';
@@ -105,18 +108,6 @@
       z-index: -2;
       filter: none;
     }
-    .section {
-  min-height: 100vh;
-  padding: 14rem 3rem;
-  opacity: 0;
-  transform: translateY(90px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
-}
-
-.section.active {
-  opacity: 1;
-  transform: translateY(0);
-}
 
     #home::before { background-image: url('retouch_2025112721184479.jpg'); }
     #about::before { background-image: url('download (45).jpg'); }
@@ -331,9 +322,12 @@ body h1:not(.home h1) {
     }
 
     footer {
-     text-align: center;
-  color: white;
-  padding: 1.5rem;
+      background: black;
+      backdrop-filter: blur(12px);
+      color: var(--text-color);
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-top: 1rem;
     }
 
     /* About Me section styling */
@@ -501,23 +495,15 @@ body h1:not(.home h1) {
   <footer>
     <p>Made with ❤️ by Oumaima Attafi | All rights reserved ©</p>
   </footer>
-  <script>
-const sections = document.querySelectorAll('.section');
+  const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    } else {
+      entry.target.classList.remove('active');
+    }
+  });
+}, { threshold: 0.45 });
 
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      } else {
-        entry.target.classList.remove('active');
-      }
-    });
-  },
-  { threshold: 0.45 }
-);
-
-sections.forEach(section => observer.observe(section));
-</script>
 </body>
 </html>
