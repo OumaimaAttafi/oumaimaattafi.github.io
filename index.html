@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Oumaima Attafi | Quantitative Analyst</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --accent: red;
-  --text: white;
-}
-
+/* ===== GLOBAL ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -28,10 +28,10 @@ body {
 /* ===== NAVBAR ===== */
 nav {
   position: fixed;
-  width: 100%;
   top: 0;
+  width: 100%;
   z-index: 1000;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(255,255,255,0.3);
 }
 
@@ -45,22 +45,22 @@ nav ul {
 
 nav a {
   color: red;
-  text-decoration: none;
   font-weight: bold;
-  transition: transform .3s ease;
+  text-decoration: none;
+  transition: transform 0.3s ease;
 }
 
 nav a:hover {
   transform: scale(1.1);
 }
 
-/* ===== SECTION ANIMATION ===== */
+/* ===== SECTION ANIMATION (RETRIGGERABLE) ===== */
 .section {
   min-height: 100vh;
   padding: 14rem 3rem;
   opacity: 0;
-  transform: translateY(80px);
-  transition: opacity 1s ease, transform 1s ease;
+  transform: translateY(90px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
 }
 
 .section.active {
@@ -69,12 +69,12 @@ nav a:hover {
 }
 
 /* ===== BACKGROUNDS ===== */
-#home { background: url('retouch_2025112721184479.jpg') center/cover; }
-#about { background: url('download (45).jpg') center/cover; }
-#projects { background: url('retouch_2025120519222551.jpg') center/cover; }
-#skills { background: url('download (45).jpg') center/cover; }
+#home    { background: url('retouch_2025112721184479.jpg') center/cover; }
+#about   { background: url('download (45).jpg') center/cover; }
+#projects{ background: url('retouch_2025120519222551.jpg') center/cover; }
+#skills  { background: url('download (45).jpg') center/cover; }
 #contact { background: url('form.jpg') center/cover; }
-#resume { background: url('download (45).jpg') center/cover; }
+#resume  { background: url('download (45).jpg') center/cover; }
 
 /* ===== HOME ===== */
 .home h1 {
@@ -83,18 +83,20 @@ nav a:hover {
 }
 
 .home p {
-  font-size: 1.4rem;
   color: white;
+  font-size: 1.5rem;
+  margin-top: 0.6rem;
 }
 
 .who-btn {
   display: inline-block;
   margin-top: 3rem;
-  padding: .9rem 2rem;
   background: red;
-  color: white;
-  text-decoration: none;
+  padding: 0.9rem 2rem;
   border-radius: 12px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
 }
 
 /* ===== TITLES ===== */
@@ -107,18 +109,18 @@ h2, h3 {
 /* ===== PROJECTS ===== */
 .project-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
   gap: 2rem;
 }
 
 .project-card {
-  background: rgba(255,255,255,.1);
+  background: rgba(255,255,255,0.1);
   backdrop-filter: blur(12px);
-  padding: 2rem;
-  border-radius: 18px;
   border: 2px solid red;
+  border-radius: 18px;
+  padding: 2rem;
   color: white;
-  transition: transform .4s ease;
+  transition: transform 0.4s ease;
 }
 
 .project-card:hover {
@@ -133,13 +135,13 @@ h2, h3 {
 }
 
 .skill-card {
-  background: rgba(255,255,255,.1);
+  background: rgba(255,255,255,0.1);
   backdrop-filter: blur(12px);
   border: 2px solid red;
   border-radius: 18px;
   padding: 2rem;
   color: white;
-  transition: transform .4s ease;
+  transition: transform 0.4s ease;
 }
 
 .skill-card:hover {
@@ -151,35 +153,36 @@ h2, h3 {
 }
 
 .skill-card li {
-  margin-bottom: .7rem;
+  margin-bottom: 0.7rem;
 }
 
 /* ===== CONTACT ===== */
 .contact-form {
   max-width: 600px;
   margin: auto;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   border: 1px solid red;
   padding: 2rem;
-  border-radius: 12px;
+  border-radius: 14px;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
   margin-bottom: 1rem;
-  padding: .8rem;
+  padding: 0.8rem;
   border-radius: 8px;
   border: none;
 }
 
 .contact-form button {
   width: 100%;
-  padding: .9rem;
+  padding: 0.9rem;
   background: red;
   color: white;
   border: none;
   border-radius: 8px;
+  font-weight: bold;
 }
 
 /* ===== FOOTER ===== */
@@ -194,109 +197,115 @@ footer {
 <body>
 
 <nav>
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#contact">Contact</a></li>
-<li><a href="#resume">Resume</a></li>
-</ul>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#resume">Resume</a></li>
+  </ul>
 </nav>
 
 <section id="home" class="section home">
-<h1>Oumaima Attafi</h1>
-<p>Junior Quantitative Analyst</p>
-<a href="#about" class="who-btn">About Me</a>
+  <h1>Oumaima Attafi</h1>
+  <p>Junior Quantitative Analyst</p>
+  <p>MSc Financial & Economic Modeling</p>
+  <a href="#about" class="who-btn">About Me</a>
 </section>
 
 <section id="about" class="section">
-<h2>About Me</h2>
-<p style="color:white; max-width:900px; margin:auto;">
-Driven by quantitative finance, econometrics, and data-driven market analysis...
-</p>
+  <h2>About Me</h2>
+  <p style="color:white; max-width:900px; margin:auto;">
+    Driven by quantitative finance, econometrics, and data-driven market analysis,
+    with a strong interest in risk modeling and empirical asset pricing.
+  </p>
 </section>
 
 <section id="projects" class="section">
-<h2>Projects</h2>
-<div class="project-list">
-<div class="project-card">Credit Risk Model</div>
-<div class="project-card">FICO Bucketing</div>
-</div>
+  <h2>Projects</h2>
+  <div class="project-list">
+    <div class="project-card">Credit Risk Model</div>
+    <div class="project-card">FICO Bucketing</div>
+  </div>
 </section>
 
 <section id="skills" class="section">
-<h2>Skills</h2>
-<div class="skills-grid">
+  <h2>Skills</h2>
 
-<div class="skill-card">
-<h3>Econometrics</h3>
-<ul>
-<li>Regression analysis</li>
-<li>Time-series models</li>
-<li>Risk measures</li>
-</ul>
-</div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h3>Econometrics</h3>
+      <ul>
+        <li>OLS & multivariate regression</li>
+        <li>Time-series analysis</li>
+        <li>Volatility & risk measures</li>
+      </ul>
+    </div>
 
-<div class="skill-card">
-<h3>Data</h3>
-<ul>
-<li>Data cleaning</li>
-<li>EDA</li>
-<li>Feature engineering</li>
-</ul>
-</div>
+    <div class="skill-card">
+      <h3>Data</h3>
+      <ul>
+        <li>Data cleaning</li>
+        <li>EDA</li>
+        <li>Feature engineering</li>
+      </ul>
+    </div>
 
-<div class="skill-card">
-<h3>Tools</h3>
-<ul>
-<li>Python</li>
-<li>Excel / VBA</li>
-<li>Git</li>
-</ul>
-</div>
+    <div class="skill-card">
+      <h3>Tools</h3>
+      <ul>
+        <li>Python (NumPy, pandas)</li>
+        <li>Excel / VBA</li>
+        <li>Git</li>
+      </ul>
+    </div>
 
-<div class="skill-card">
-<h3>Machine Learning & Deep Learning</h3>
-<ul>
-<li>Supervised learning</li>
-<li>Model validation</li>
-<li>Neural network basics</li>
-</ul>
-</div>
-
-</div>
+    <div class="skill-card">
+      <h3>Machine Learning & Deep Learning</h3>
+      <ul>
+        <li>Supervised learning</li>
+        <li>Model validation</li>
+        <li>Neural network fundamentals</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <section id="contact" class="section">
-<h2>Contact</h2>
-<div class="contact-form">
-<input placeholder="Name">
-<input placeholder="Email">
-<textarea placeholder="Message"></textarea>
-<button>Send</button>
-</div>
+  <h2>Contact</h2>
+  <div class="contact-form">
+    <input placeholder="Name">
+    <input placeholder="Email">
+    <textarea placeholder="Message"></textarea>
+    <button>Send Message</button>
+  </div>
 </section>
 
 <section id="resume" class="section">
-<h2>Resume</h2>
-<a href="Oumaima_Attafi_Resume.pdf" class="who-btn">Download Resume</a>
+  <h2>Resume</h2>
+  <a href="Oumaima_Attafi_Resume.pdf" class="who-btn">Download Resume</a>
 </section>
 
 <footer>
-Made by Oumaima Attafi ©
+  Made by Oumaima Attafi ©
 </footer>
 
 <script>
 const sections = document.querySelectorAll('.section');
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('active');
-    }
-  });
-}, { threshold: 0.35 });
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      } else {
+        entry.target.classList.remove('active');
+      }
+    });
+  },
+  { threshold: 0.45 }
+);
 
 sections.forEach(section => observer.observe(section));
 </script>
