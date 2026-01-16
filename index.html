@@ -1,534 +1,518 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oumaima Attafi | Quantitative Analyst</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oumaima Attafi | Quantitative Analyst </title>
+    <!-- Google Font Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        :root {
+            --gradient-start: black;
+            --gradient-end: black;
+            --text-color: #1b1b1e;
+            --accent-color: #ffffff;
+            --neon-color: red;
+        }
 
-  <!-- Google Font Montserrat -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'DM Serif Display', sans-serif; /* Changed to Montserrat */
+        }
 
-  <style>
-    :root {
-      --gradient-start: black;
-      --gradient-end: black;
-      --text-color: #1b1b1e;
-      --accent-color: #ffffff;
-      --neon-color: red;
-    }
+        body {
+            background: transparent;
+            color: var(--text-color);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'DM Serif Display', sans-serif; /* Changed to Montserrat */
-    }
+        nav {
+            background: transparent;
+            backdrop-filter: blur(20px);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
 
-    body {
-      background: transparent;
-      color: var(--text-color);
-      line-height: 1.8;
-      overflow-x: hidden;
-    }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 4rem;
+        }
 
-    nav {
-      background: transparent;
-      backdrop-filter: blur(20px);
-      padding: 1rem 2rem;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    }
+        nav ul li a {
+            color: red;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
 
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      gap: 4rem;
-    }
+        nav ul li a:hover {
+            color: var(--accent-color);
+            transform: scale(1.1);
+        }
 
-    nav ul li a {
-      color: red;
-      text-decoration: none;
-      font-weight: bold;
-      position: relative;
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--neon-color);
+            box-shadow: 0 0 10px var(--neon-color), 0 0 20px var(--neon-color);
+            transition: width 0.4s ease;
+        }
 
-    nav ul li a:hover {
-      color: var(--accent-color);
-      transform: scale(1.1);
-    }
+        nav ul li a:hover::after {
+            width: 100%;
+        }
 
-    nav ul li a::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: -5px;
-      left: 0;
-      background-color: var(--neon-color);
-      box-shadow: 0 0 10px var(--neon-color), 0 0 20px var(--neon-color);
-      transition: width 0.4s ease;
-    }
+        .section {
+            padding: 14rem 3rem;
+            max-width: 1600px;
+            min-height: 100vh;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+        }
 
-    nav ul li a:hover::after {
-      width: 100%;
-    }
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 1;
+            z-index: -2;
+            filter: none;
+        }
 
-    .section {
-      padding: 14rem 3rem;
-      max-width: 1600px;
-      min-height: 100vh;
-      margin: auto;
-      position: relative;
-      overflow: hidden;
-    }
+        #home::before { background-image: url('retouch_2025112721184479.jpg'); }
+        #about::before { background-image: url('download (45).jpg'); }
+        #projects::before { background-image: url('retouch_2025120519222551.jpg'); }
+        #skills::before { background-image: url('download (45).jpg'); }
+        #contact::before { background-image: url('form.jpg'); }
+        #resume::before { background-image: url('download (45).jpg'); }
 
-    .section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: 1;
-      z-index: -2;
-      filter: none;
-    }
+        h2, h3, body h1:not(.home h1) {
+            text-align: center; /* centre les titres */
+            color: white; /* texte blanc */
+        }
 
-    #home::before { background-image: url('retouch_2025112721184479.jpg'); }
-    #about::before { background-image: url('download (45).jpg'); }
-    #projects::before { background-image: url('retouch_2025120519222551.jpg'); }
-    #skills::before { background-image: url('download (45).jpg'); }
-    #contact::before { background-image: url('form.jpg'); }
-    #resume::before { background-image: url('download (45).jpg'); }
+        .home {
+            text-align: left;
+            padding-left: 5rem;
+        }
 
-    h2, h3, body h1:not(.home h1) {
-      text-align: center;
-      color: white;
-    }
+        .home h1, .home p { color: white; }
 
-    .home {
-      text-align: left;
-      padding-left: 5rem;
-    }
+        .home h1 {
+            font-size: 5rem;
+            text-transform: uppercase;
+        }
 
-    .home h1, .home p { color: white; }
-    .home h1 { font-size: 5rem; text-transform: uppercase; }
-    .home p { font-size: 1.6rem; margin-top: 1rem; }
+        .home p {
+            font-size: 1.6rem;
+            margin-top: 1rem;
+        }
 
-    .home .who-btn {
-      display: inline-block;
-      margin-top: 3rem;
-      background: red;
-      padding: 0.8rem 1.8rem;
-      border-radius: 12px;
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-      box-shadow: 0 0 15px var(--neon-color);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-    }
+        .home .who-btn {
+            display: inline-block;
+            margin-top: 3rem;
+            background: red;
+            padding: 0.8rem 1.8rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            box-shadow: 0 0 15px var(--neon-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
 
-    .home .who-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px var(--neon-color);
-    }
+        .home .who-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px var(--neon-color);
+        }
 
-    /* Projects grid (unchanged) */
-    .project-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
+        .project-list, .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
 
-    .project-card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      color: var(--accent-color);
-      padding: 1.5rem;
-      border-radius: 16px;
-      border: 2px solid red;
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+        .project-card, .skills-list li {
+            background: rgba(255, 255, 255, 0.1); /* semi-transparent */
+            backdrop-filter: blur(12px); /* effet flou */
+            -webkit-backdrop-filter: blur(12px); /* compatibilité Safari */
+            color: var(--accent-color);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 2px solid red; /* cadre rouge */
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); /* glow rouge */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    .project-card:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 30px rgba(255, 0, 0, 0.9);
-    }
+        .project-card:hover, .skills-list li:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.9); /* glow plus intense au hover */
+        }
 
-    .project-card h3 a {
-      color: inherit;
-      text-decoration: none;
-    }
+        .skills-list li {
+            list-style: none;
+            font-size: 1.3rem;
+        }
 
-    .project-card h3 a:hover { text-decoration: underline; }
+        .project-card h3 a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-    /* ===== SKILLS SECTION FIXED TO 4 VERTICAL COLUMNS ===== */
-    .skills-list {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem 2rem;
-      margin-top: 3rem;
-      list-style: none;
-      padding: 0;
-    }
+        .project-card h3 a:hover { text-decoration: underline; }
 
-    .skills-list li {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      color: var(--accent-color);
-      padding: 1.5rem;
-      border-radius: 16px;
-      border: 2px solid red;
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      font-size: 1.3rem;
-    }
+        /* ===== CONTACT SECTION ===== */
+        .contact { padding: 80px 20px; }
+        .contact h2 {
+            text-align: center;
+            color: white;
+            margin-bottom: 100px;
+        }
 
-    .skills-list li:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 30px rgba(255, 0, 0, 0.9);
-    }
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
 
-    /* ===== CONTACT SECTION ===== */
-    .contact {
-      padding: 80px 20px;
-    }
+        /* Formulaire transparent + blur */
+        .contact-form {
+            width: 100%;
+            max-width: 600px;
+            background: transparent;
+            border: 1px solid red;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            padding: 30px;
+        }
 
-    .contact h2 {
-      text-align: center;
-      color: white;
-      margin-bottom: 100px;
-    }
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-    .contact-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
+        .contact-form input, .contact-form textarea {
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            font-size: 1rem;
+        }
 
-    .contact-form {
-      width: 100%;
-      max-width: 600px;
-      background: transparent;
-      border: 1px solid red;
-      border-radius: 12px;
-      backdrop-filter: blur(10px);
-      padding: 30px;
-    }
+        .contact-form button {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: red;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-    .contact-form form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+        .contact-form button:hover {
+            background: white;
+            color: black;
+        }
 
-    .contact-form input,
-    .contact-form textarea {
-      padding: 12px;
-      background: rgba(255, 255, 255, 0.05);
-      border: none;
-      border-radius: 8px;
-      outline: none;
-      font-size: 1rem;
-    }
+        /* Social buttons */
+        .social-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
 
-    .contact-form button {
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      background: red;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+        .social-btn {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid red;
+            background: white;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
 
-    .contact-form button:hover {
-      background: white;
-      color: black;
-    }
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            border: 1px solid red;
+        }
 
-    .social-buttons {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
+        .icon-logo { width: 26px; height: 26px; }
 
-    .social-btn {
-      width: 55px;
-      height: 55px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      border: 1px solid red;
-      background: white;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-    }
+        .resume {
+            text-align: center; /* centre le contenu de la section*/
+            color: white;
+        }
 
-    .social-btn:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 50%;
-      border: 1px solid red;
-    }
+        .download-btn {
+            display: inline-block;
+            margin-top: 3rem;
+            background: red;
+            padding: 0.8rem 1.8rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            box-shadow: 0 0 15px var(--neon-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: center;
+        }
 
-    .icon-logo {
-      width: 26px;
-      height: 26px;
-    }
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px var(--neon-color);
+        }
 
-    .resume {
-      text-align: center;
-      color: white;
-    }
+        footer {
+            background:black;
+            backdrop-filter: blur(12px);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 1rem;
+        }
 
-    .download-btn {
-      display: inline-block;
-      margin-top: 3rem;
-      background: red;
-      padding: 0.8rem 1.8rem;
-      border-radius: 12px;
-      text-decoration: none;
-      color: var(--text-color);
-      font-weight: bold;
-      box-shadow: 0 0 15px var(--neon-color);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+        /* About Me section styling */
+        .about-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+            flex-wrap: wrap; /* allows responsive stacking on smaller screens */
+        }
 
-    .download-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px var(--neon-color);
-    }
+        .about-text {
+            flex: 1 1 50%; /* left column occupies ~55% of width */
+            color: white;
+        }
 
-    footer {
-      background: black;
-      backdrop-filter: blur(12px);
-      color: white;
-      text-align: center;
-      padding: 1rem 0;
-      margin-top: 1rem;
-    }
+        .about-education {
+            flex: 1 1 50%; /* right column ~40% of width */
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 6rem;
+        }
 
-    /* About Me section styling */
-    .about-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
+        .about-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: var(--accent-color);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid red;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    .about-text {
-      flex: 1 1 50%;
-      color: white;
-      margin-top: -1.2rem;
-    }
+        .about-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.9);
+        }
 
-    .about-education {
-      flex: 1 1 50%;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      margin-top: 6rem;
-    }
+        .about-text {
+            flex: 1 1 45%;
+            color: white;
+            margin-top: -1.2rem;
+        }
 
-    .about-card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      color: var(--accent-color);
-      padding: 2rem;
-      border-radius: 16px;
-      border: 2px solid red;
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+        .about-text h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
 
-    .about-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px rgba(255, 0, 0, 0.9);
-    }
+        .about-text p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-top: 1.2rem;
+        }
 
-    .about-text h2 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      margin-top: 0;
-    }
+        /* ===== ANIMATION CLASSES ===== */
+        .animate-text, .animate-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
 
-    .about-text p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      margin-top: 1.2rem;
-    }
-
-    /* Animation Classes */
-    .animate-text,
-    .animate-up {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: transform 0.8s ease, opacity 0.8s ease;
-    }
-
-    .animate-text.active,
-    .animate-up.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-  </style>
+        .animate-text.active, .animate-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#resume">Resume</a></li>
+        </ul>
+    </nav>
 
-<nav class="navbar">
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About Me</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#resume">Resume</a></li>
-  </ul>
-</nav>
+    <section id="home" class="section home">
+        <h1 class="animate-text">Oumaima Attafi</h1>
+        <p class="animate-text">Junior Quantitative Analyst | M.Sc. in Financial and Economic Modeling</p>
+        <p class="animate-text">and Quantitative Analysis | B.Sc. in Financial and Economic Engineering</p>
+        <a href="#about" class="who-btn">About me</a>
+    </section>
 
-<section id="home" class="section home">
-  <h1 class="animate-text">Oumaima Attafi</h1>
-  <p class="animate-text">Junior Quantitative Analyst | M.Sc. in Financial and Economic Modeling</p>
-  <p class="animate-text">and Quantitative Analysis | B.Sc. in Financial and Economic Engineering</p>
-  <a href="#about" class="who-btn">About me</a>
-</section>
+    <!-- About Me section -->
+    <section id="about" class="section about">
+        <div class="about-content">
+            <!-- Left column: About Me text -->
+            <div class="about-text">
+                <h2 class="animate-text">About Me</h2>
+                <p class="animate-text">
+                    Driven by a strong academic foundation in financial modeling, statistics, and econometrics, my interests lie in applying quantitative methods to the analysis of financial markets.
+                </p>
+                <p>
+                    My work focuses on Python-based data analysis, time-series modeling, and empirical finance, with an emphasis on translating financial theory into structured, data-driven frameworks.
+                </p>
+                <p>
+                    I am particularly drawn to asset pricing, risk modeling, and quantitative investment strategies, approaching these areas with analytical rigor, intellectual curiosity, and a continuous learning mindset.
+                </p>
+                <p>
+                    My objective is to progressively develop robust quantitative skills while contributing disciplined, methodical thinking in research-oriented financial environments.
+                </p>
+            </div>
 
-<!-- About Me section -->
-<section id="about" class="section about">
-  <div class="about-content">
-    <div class="about-text">
-      <h2 class="animate-text">About Me</h2>
-      <p class="animate-text">
-        Driven by a strong academic foundation in financial modeling, statistics, and econometrics, my interests lie in applying quantitative methods to the analysis of financial markets.
-      </p>
-      <p>
-        My work focuses on Python-based data analysis, time-series modeling, and empirical finance, with an emphasis on translating financial theory into structured, data-driven frameworks.
-      </p>
-      <p>
-        I am particularly drawn to asset pricing, risk modeling, and quantitative investment strategies, approaching these areas with analytical rigor, intellectual curiosity, and a continuous learning mindset.
-      </p>
-      <p>
-        My objective is to progressively develop robust quantitative skills while contributing disciplined, methodical thinking in research-oriented financial environments.
-      </p>
-    </div>
-    <div class="about-education">
-      <div class="about-card animate-up">
-        <h3>M.Sc in Financial and Economic Modelling and Quantitative Analysis</h3>
-        <p>Master’s degree focusing on advanced quantitative methods, econometrics, and financial modeling.</p>
-      </div>
-      <div class="about-card animate-up">
-        <h3>B.Sc in Financial and Economic Engineering</h3>
-        <p>Undergraduate degree covering finance, economics, and quantitative problem-solving techniques.</p>
-      </div>
-    </div>
-  </div>
-</section>
+            <!-- Right column: Education cards -->
+            <div class="about-education">
+                <div class="about-card animate-up">
+                    <h3>M.Sc in Financial and Economic Modelling and Quantitative Analysis</h3>
+                    <p>Master’s degree focusing on advanced quantitative methods, econometrics, and financial modeling.</p>
+                </div>
+                <div class="about-card animate-up">
+                    <h3>B.Sc in Financial and Economic Engineering</h3>
+                    <p>Undergraduate degree covering finance, economics, and quantitative problem-solving techniques.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="projects" class="section projects">
-  <h2 class="animate-text">Projects</h2>
-  <div class="project-list">
-    <div class="project-card animate-up">
-      <h3><a href="https://github.com/oumaimaattafi/Credit-Risk-Model" target="_blank" rel="noopener noreferrer">Credit Risk Model</a></h3>
-      <p>A model to predict credit risk for mortgage portfolios using machine learning techniques.</p>
-    </div>
-    <div class="project-card animate-up">
-      <h3><a href="https://github.com/oumaimaattafi/Fico-Bucketing-Model" target="_blank" rel="noopener noreferrer">FICO Bucketing</a></h3>
-      <p>Tool to bucket FICO scores and calculate probability of default for credit analysis.</p>
-    </div>
-  </div>
-</section>
+    <section id="projects" class="section projects">
+        <h2 class="animate-text">Projects</h2>
+        <div class="project-list">
+            <div class="project-card animate-up">
+                <h3><a href="https://github.com/oumaimaattafi/Credit-Risk-Model" target="_blank" rel="noopener noreferrer">Credit Risk Model</a></h3>
+                <p>A model to predict credit risk for mortgage portfolios using machine learning techniques.</p>
+            </div>
+            <div class="project-card animate-up">
+                <h3><a href="https://github.com/oumaimaattafi/Fico-Bucketing-Model" target="_blank" rel="noopener noreferrer">FICO Bucketing</a></h3>
+                <p>Tool to bucket FICO scores and calculate probability of default for credit analysis.</p>
+            </div>
+        </div>
+    </section>
 
-<section id="skills" class="section skills">
-  <h2 class="animate-text">Skills</h2>
-  <ul class="skills-list">
-    <li class="animate-up">Time-series analysis (returns, volatility, stationarity)</li>
-    <li class="animate-up">Regression analysis (OLS, multivariate models)</li>
-    <li class="animate-up">Machine and Deep learning</li>
-    <li class="animate-up">Asset pricing fundamentals</li>
-    <li class="animate-up">Risk measures (volatility, VaR, basic stress testing)</li>
-    <li class="animate-up">Excel and VBA</li>
-    <li class="animate-up">Python (NumPy, pandas, SciPy, statsmodels)</li>
-    <li class="animate-up">Data cleaning, transformation, and exploratory data analysis</li>
-    <li class="animate-up">Econometric modeling</li>
-    <li class="animate-up">Time-series models (ARIMA-type concepts)</li>
-    <li class="animate-up">Model validation and diagnostic testing</li>
-    <li class="animate-up">Feature engineering for financial data</li>
-  </ul>
-</section>
+    <section id="skills" class="section skills">
+        <h2 class="animate-text">Skills</h2>
+        <ul class="skills-list">
+            <li class="animate-up">Time-series analysis (returns, volatility, stationarity)</li>
+            <li class="animate-up">Regression analysis (OLS, multivariate models)</li>
+            <li class="animate-up">Machine and Deep learning</li>
+            <li class="animate-up">Asset pricing fundamentals</li>
+            <li class="animate-up">Risk measures (volatility, VaR, basic stress testing)</li>
+            <li class="animate-up">Excel and VBA</li>
+            <li class="animate-up">Python (NumPy, pandas, SciPy, statsmodels)</li>
+            <li class="animate-up">Data cleaning, transformation, and exploratory data analysis</li>
+            <li class="animate-up">Econometric modeling</li>
+            <li class="animate-up">Time-series models (ARIMA-type concepts)</li>
+            <li class="animate-up">Model validation and diagnostic testing</li>
+            <li class="animate-up">Feature engineering for financial data</li>
+        </ul>
+    </section>
 
-<section id="contact" class="section">
-  <h2 class="animate-text">Contact Me</h2>
-  <div class="contact-container">
-    <div class="contact-form animate-up">
-      <form>
-        <input type="text" placeholder="Name *" required>
-        <input type="email" placeholder="Email *" required>
-        <input type="text" placeholder="Subject *" required>
-        <textarea placeholder="Your Message *" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-      <div class="social-buttons">
-        <a href="https://www.linkedin.com/in/oumaimaattafi" target="_blank" class="social-btn linkedin">
-          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="icon-logo">
-        </a>
-        <a href="mailto:oumaima.attafi410@gmail.com" class="social-btn gmail">
-          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail" class="icon-logo">
-        </a>
-        <a href="tel:+21624356888" class="social-btn phone">
-          <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" class="icon-logo">
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2 class="animate-text">Contact Me</h2>
+        <div class="contact-container">
+            <div class="contact-form animate-up">
+                <form>
+                    <input type="text" placeholder="Name *" required>
+                    <input type="email" placeholder="Email *" required>
+                    <input type="text" placeholder="Subject *" required>
+                    <textarea placeholder="Your Message *" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+                <div class="social-buttons">
+                    <a href="https://www.linkedin.com/in/oumaimaattafi" target="_blank" class="social-btn linkedin">
+                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="icon-logo">
+                    </a>
+                    <a href="mailto:oumaima.attafi410@gmail.com" class="social-btn gmail">
+                        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail" class="icon-logo">
+                    </a>
+                    <a href="tel:+21624356888" class="social-btn phone">
+                        <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" class="icon-logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="resume" class="section resume">
-  <h2 class="animate-text">Resume</h2>
-  <p>Download my resume to learn more about my professional background.</p>
-  <a href="Oumaima_Attafi_Resume.pdf" download class="download-btn">Download Resume</a>
-</section>
+    <section id="resume" class="section resume">
+        <h2 class="animate-text">Resume</h2>
+        <p>Download my resume to learn more about my professional background.</p>
+        <a href="Oumaima_Attafi_Resume.pdf" download class="download-btn">Download Resume</a>
+    </section>
 
-<footer>
-  <p>Made with ❤️ by Oumaima Attafi | All rights reserved ©</p>
-</footer>
+    <footer>
+        <p>Made with ❤️ by Oumaima Attafi | All rights reserved ©</p>
+    </footer>
 
-<script>
-  const animatedElements = document.querySelectorAll('.animate-text, .animate-up');
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        } else {
-          entry.target.classList.remove('active');
-        }
-      });
-    },
-    { threshold: 0.4 }
-  );
-  animatedElements.forEach(el => observer.observe(el));
-</script>
+    <script>
+        const animatedElements = document.querySelectorAll('.animate-text, .animate-up');
 
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    } else {
+                        entry.target.classList.remove('active');
+                    }
+                });
+            },
+            { threshold: 0.4 }
+        );
+
+        animatedElements.forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
